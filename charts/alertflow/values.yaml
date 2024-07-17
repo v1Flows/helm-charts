@@ -69,9 +69,11 @@ ingress:
     - host: alertflow.org
       paths:
         - path: /
+          pathType: ImplementationSpecific
           serviceName: frontend
           servicePort: 80
         - path: /api
+          pathType: ImplementationSpecific
           serviceName: backend
           servicePort: 8080
   tls:
@@ -92,7 +94,7 @@ resources: {}
   #   memory: 128Mi
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 1
   maxReplicas: 5
   targetCPUUtilizationPercentage: 80
