@@ -25,6 +25,17 @@ backend:
     type: ClusterIP
     port: 8080
     target_port: 8080
+  
+  env:
+    - name: DB_PASS
+      value: ""
+    
+    - name: DB_TABLE
+      value: "alertflow"
+    
+    - name: JWT_KEY
+      value: ""
+    
 
 # My Custom Space end
 
