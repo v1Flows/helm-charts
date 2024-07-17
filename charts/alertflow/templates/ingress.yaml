@@ -6,7 +6,7 @@ apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: "alertflow-ingress"
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
