@@ -71,11 +71,11 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
-          serviceName: frontend
+          serviceName: alertflow
           servicePort: 80
         - path: /api
           pathType: ImplementationSpecific
-          serviceName: backend
+          serviceName: alertflow
           servicePort: 8080
   tls:
     - secretName: alertflow-org-tls
