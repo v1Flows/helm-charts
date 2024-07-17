@@ -36,11 +36,11 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: http
+              port: {{ .Values.frontend.service.target_port }}
           readinessProbe:
             httpGet:
               path: /
-              port: http
+              port: {{ .Values.frontend.service.target_port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
 
@@ -51,12 +51,12 @@ spec:
           imagePullPolicy: {{ .Values.backend.pullPolicy }}
           livenessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /api/page/settings
+              port: {{ .Values.backend.service.target_port }}
           readinessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /api/page/settings
+              port: {{ .Values.backend.service.target_port }}
           env:
             - name: DB_PASS
               value: "{{ .Values.backend.env.DB_PASS }}"
