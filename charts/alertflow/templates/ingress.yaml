@@ -1,12 +1,8 @@
 {{- if .Values.ingress.enabled -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
 apiVersion: networking.k8s.io/v1
-{{- else -}}
-apiVersion: extensions/v1
-{{- end }}
 kind: Ingress
 metadata:
-  name: "alertflow-ingress"
+  name: "alertflow"
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
@@ -14,6 +10,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
   {{- if .Values.ingress.tls }}
   tls:
     {{- range .Values.ingress.tls }}
@@ -33,8 +30,10 @@ spec:
           - path: {{ .path }}
             pathType: {{ .pathType }}
             backend:
-              serviceName: {{ .serviceName }}
-              servicePort: {{ .servicePort }}
+              service:
+                name: {{ .serviceName }}
+                port:
+                  number: {{ .servicePort }}
           {{- end }}
     {{- end }}
   {{- end }}
