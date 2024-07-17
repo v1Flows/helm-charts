@@ -58,7 +58,12 @@ spec:
               path: /
               port: http
           env:
-            {{- toYaml .Values.backend.env | nindent 12 }}
+            - name: DB_PASS
+              value: "{{ .Values.backend.env.DB_PASS }}"
+            - name: DB_TABLE
+              value: "{{ .Values.backend.env.DB_TABLE }}"
+            - name: JWT_KEY
+              value: "{{ .Values.backend.env.JWT_KEY }}"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
