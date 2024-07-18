@@ -76,7 +76,7 @@ spec:
             - containerPort: 5432
           envFrom:
             - configMapRef:
-                name: postgres-config
+                name: alertflow-postgres-config
           {{- if not .Values.database.persistentVolume.enabled }}
           volumeMounts:
             - name: postgresdb
@@ -88,7 +88,7 @@ spec:
       volumes:
         - name: postgresdb
           persistentVolumeClaim:
-            claimName: {{ include "alertflow.fullname" . }}
+            claimName: "{{ include "alertflow.fullname" . }}-postgres-pvc"
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
