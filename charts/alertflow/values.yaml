@@ -42,7 +42,7 @@ database:
   env:
     POSTGRES_DB: alertflow
     POSTGRES_USER: alertflow
-    POSTGRES_PASSWORD: ""
+    POSTGRES_PASSWORD: "password"
 
 # My Custom Space end
 
