@@ -41,7 +41,7 @@ database:
     size: 1Gi
   env:
     POSTGRES_DB: alertflow
-    POSTGRES_USER: alertflow
+    POSTGRES_USER: postgres
     POSTGRES_PASSWORD: "password"
 
 # My Custom Space end
