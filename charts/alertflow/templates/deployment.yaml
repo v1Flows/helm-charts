@@ -51,11 +51,11 @@ spec:
           imagePullPolicy: {{ .Values.backend.pullPolicy }}
           livenessProbe:
             httpGet:
-              path: /api/page/settings
+              path: /api/health
               port: {{ .Values.backend.service.target_port }}
           readinessProbe:
             httpGet:
-              path: /api/page/settings
+              path: /api/health
               port: {{ .Values.backend.service.target_port }}
           envFrom:
             - configMapRef:
