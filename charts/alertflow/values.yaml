@@ -89,9 +89,9 @@ resources:
   # limits:
   #   cpu: 400m
   #   memory: 768Mi
-  # requests:
-  #   cpu: 300m
-  #   memory: 384Mi
+  requests:
+    cpu: 300m
+    memory: 384Mi
 
 autoscaling:
   enabled: true
