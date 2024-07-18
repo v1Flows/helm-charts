@@ -1,4 +1,4 @@
-{{- if not .Values.database.persistentVolume.enabled }}
+{{- if .Values.database.persistentVolume.enabled }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:

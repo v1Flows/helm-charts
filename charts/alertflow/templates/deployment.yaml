@@ -84,7 +84,7 @@ spec:
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      {{- if not .Values.database.persistentVolume.enabled }}
+      {{- if .Values.database.persistentVolume.enabled }}
       volumes:
         - name: postgresdb
           persistentVolumeClaim:
