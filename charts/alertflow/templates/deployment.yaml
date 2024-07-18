@@ -57,13 +57,9 @@ spec:
             httpGet:
               path: /api/page/settings
               port: {{ .Values.backend.service.target_port }}
-          env:
-            - name: DB_PASS
-              value: "{{ .Values.backend.env.DB_PASS }}"
-            - name: DB_TABLE
-              value: "{{ .Values.backend.env.DB_TABLE }}"
-            - name: JWT_KEY
-              value: "{{ .Values.backend.env.JWT_KEY }}"
+          envFrom:
+            - configMapRef:
+                name: alertflow-backend-config
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
         

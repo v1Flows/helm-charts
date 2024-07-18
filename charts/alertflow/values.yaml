@@ -27,8 +27,11 @@ backend:
     target_port: 8080
   
   env:
-    DB_PASS: ""
-    DB_TABLE: "alertflow"
+    DB_SERVER: localhost
+    DB_PORT: 5432
+    DB_USER: postgres
+    DB_PASS: password
+    DB_TABLE: alertflow
     JWT_KEY: ""
 
 database:
@@ -42,7 +45,7 @@ database:
   env:
     POSTGRES_DB: alertflow
     POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: "password"
+    POSTGRES_PASSWORD: password
 
 # My Custom Space end
 
