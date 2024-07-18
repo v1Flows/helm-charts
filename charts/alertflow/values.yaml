@@ -9,7 +9,7 @@ replicaCount: 3
 frontend:
   repository: harbor.justlab.xyz/alertflow/frontend
   pullPolicy: Always
-  tag: "latest"
+  tag: ""
 
   service:
     type: ClusterIP
@@ -19,7 +19,7 @@ frontend:
 backend:
   repository: harbor.justlab.xyz/alertflow/backend
   pullPolicy: Always
-  tag: "latest"
+  tag: ""
 
   service:
     type: ClusterIP
