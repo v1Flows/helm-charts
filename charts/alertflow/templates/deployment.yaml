@@ -66,6 +66,30 @@ spec:
               value: "{{ .Values.backend.env.JWT_KEY }}"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        
+        - name: database
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.database.image }}:{{ .Values.database.tag }}"
+          imagePullPolicy: {{ .Values.database.pullPolicy }}
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: postgres-config
+          {{- if not .Values.database.persistentVolume.enabled }}
+          volumeMounts:
+            - name: postgresdb
+              mountPath: /var/lib/postgresql/data
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- if not .Values.database.persistentVolume.enabled }}
+      volumes:
+        - name: postgresdb
+          persistentVolumeClaim:
+            claimName: {{ include "alertflow.fullname" . }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

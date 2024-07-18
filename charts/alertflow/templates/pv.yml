@@ -1,0 +1,14 @@
+{{- if not .Values.database.persistentVolume.enabled }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ include "alertflow.fullname" . }}
+  labels:
+    {{- include "alertflow.labels" . | nindent 4 }}
+spec:
+  storageClassName: longhorn
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+{{- end }}
