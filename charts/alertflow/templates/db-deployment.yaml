@@ -33,7 +33,13 @@ spec:
           image: "{{ .Values.database.image }}:{{ .Values.database.tag }}"
           imagePullPolicy: {{ .Values.database.pullPolicy }}
           ports:
-            - containerPort: 5432
+            - containerPort: {{ .Values.database.service.target_port }}
+          livenessProbe:
+            tcpSocket:
+              port: {{ .Values.database.service.target_port }}
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.database.service.target_port }}
           envFrom:
             - configMapRef:
                 name: alertflow-postgres-config
