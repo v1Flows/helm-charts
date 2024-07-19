@@ -1,11 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: "{{ include "alertflow.fullname" . }}-postgres"
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.database.replicaCount }}
+  serviceName: {{ include "alertflow.fullname" . }}-postgres
   selector:
     matchLabels:
       {{- include "alertflow.postgres.selectorLabels" . | nindent 6 }}
