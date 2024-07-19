@@ -3,14 +3,12 @@ kind: Deployment
 metadata:
   name: "{{ include "alertflow.fullname" . }}-postgres"
   labels:
-    app.kubernetes.io/name: "{{ include "alertflow.fullname" . }}-postgres"
-    app.kubernetes.io/instance: "{{ include "alertflow.fullname" . }}-postgres"
+    {{- include "alertflow.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.database.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: "{{ include "alertflow.fullname" . }}-postgres"
-      app.kubernetes.io/instance: "{{ include "alertflow.fullname" . }}-postgres"
+      {{- include "alertflow.postgres.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}

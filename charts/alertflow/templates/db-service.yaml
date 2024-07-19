@@ -12,5 +12,4 @@ spec:
       protocol: TCP
       name: postgres
   selector:
-    app.kubernetes.io/name: "{{ include "alertflow.fullname" . }}-postgres"
-    app.kubernetes.io/instance: "{{ include "alertflow.fullname" . }}-postgres"
+    {{- include "alertflow.postgres.selectorLabels" . | nindent 4 }}
