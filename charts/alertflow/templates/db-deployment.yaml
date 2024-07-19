@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   name: "{{ include "alertflow.fullname" . }}-postgres"
   labels:
-    - "app.kubernetes.io/name={{ include "alertflow.fullname" . }}-postgres"
-    - "app.kubernetes.io/instance={{ include "alertflow.fullname" . }}-postgres"
+    app.kubernetes.io/name: "{{ include "alertflow.fullname" . }}-postgres"
+    app.kubernetes.io/instance: "{{ include "alertflow.fullname" . }}-postgres"
 spec:
   replicas: {{ .Values.database.replicaCount }}
   selector:
