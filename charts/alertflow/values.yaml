@@ -47,6 +47,10 @@ database:
     POSTGRES_DB: alertflow
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: password
+  service:
+    type: ClusterIP
+    port: 5432
+    target_port: 5432
 
 # My Custom Space end
 
