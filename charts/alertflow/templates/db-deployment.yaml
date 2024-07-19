@@ -9,7 +9,8 @@ spec:
   replicas: {{ .Values.database.replicaCount }}
   selector:
     matchLabels:
-      {{- include "alertflow.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/name: "{{ include "alertflow.fullname" . }}-postgres"
+      app.kubernetes.io/instance: "{{ include "alertflow.fullname" . }}-postgres"
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -17,7 +18,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "alertflow.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/name: "{{ include "alertflow.fullname" . }}-postgres"
+        app.kubernetes.io/instance: "{{ include "alertflow.fullname" . }}-postgres"
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
