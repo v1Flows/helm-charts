@@ -45,7 +45,7 @@ database:
     size: 10Gi
   env:
     POSTGRES_DB: alertflow
-    POSTGRES_USER: postgres
+    POSTGRES_USER: alertflow
     POSTGRES_PASSWORD: password
   service:
     type: ClusterIP
