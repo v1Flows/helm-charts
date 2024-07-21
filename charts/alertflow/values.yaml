@@ -55,21 +55,21 @@ database:
 runners:
   enabled: true
   containers:
-    - image: harbor.justlab.xyz/alertflow/runners
+    - image: harbor.justlab.xyz/alertflow/runner
       pullPolicy: Always
       tag: "latest"
       env:
         RUNNER_ID: "41f3861d-333d-4b8e-8a3b-53f953d12f07"
         ALERTFLOW_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiZjRlYTg4YjItZTlkZi00YmM0LTk0ZTgtMjQxODE3MDYxM2YzIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzI5ODM5NDMzM30.ZPAk9mYGxJRblYxGFKvc0w8zvlwwPnjcReI89juRICM"
         PAYLOADS_ENABLED: true
-    - image: harbor.justlab.xyz/alertflow/runners
+    - image: harbor.justlab.xyz/alertflow/runner
       pullPolicy: Always
       tag: "latest"
       env:
         RUNNER_ID: "e6657ce9-1fc8-4aa4-a881-00b56427aee0"
         ALERTFLOW_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiNWI0MWZiOTUtMmYwZC00MThhLWFiOWItNGY0YzViM2I4NjJmIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzI5ODM5NDM0NX0.7rDJwDJOJRWRMZmzy7mx_qJOO3lkHyBhExJrwPO88nk"
         PAYLOADS_ENABLED: true
-    - image: harbor.justlab.xyz/alertflow/runners
+    - image: harbor.justlab.xyz/alertflow/runner
       pullPolicy: Always
       tag: "latest"
       env:
