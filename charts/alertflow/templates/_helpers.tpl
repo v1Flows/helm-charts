@@ -59,6 +59,14 @@ app.kubernetes.io/instance: {{ .Release.Name }}-postgres
 {{- end }}
 
 {{/*
+Runners Selector labels
+*/}}
+{{- define "alertflow.runners.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "alertflow.name" . }}-runners
+app.kubernetes.io/instance: {{ .Release.Name }}-runners
+{{- end }}
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "alertflow.serviceAccountName" -}}
