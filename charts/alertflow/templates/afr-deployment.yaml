@@ -27,8 +27,8 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        {{- range .Values.runners.runners }}
-        - name: runner-{{ .name }}
+        {{- range $index, $element := .Values.runners.containers }}
+        - name: runner-{{ $index }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.runners.image }}:{{ .Values.runners.tag }}"
@@ -37,11 +37,11 @@ spec:
             - name: ALERTFLOW_URL
               value: "https://alertflow.org"
             - name: RUNNER_ID
-              value: "{{ .env.RUNNER_ID }}"
+              value: "{{ $element.env.RUNNER_ID }}"
             - name: ALERTFLOW_APIKEY
-              value: "{{ .env.ALERTFLOW_APIKEY }}"
+              value: "{{ $element.env.ALERTFLOW_APIKEY }}"
             - name: PAYLOADS_ENABLED
-              value: "{{ .env.PAYLOADS_ENABLED }}"
+              value: "{{ $element.env.PAYLOADS_ENABLED }}"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
         {{- end }}

@@ -57,7 +57,7 @@ runners:
   image: harbor.justlab.xyz/alertflow/runners
   pullPolicy: Always
   tag: "latest"
-  runners:
+  containers:
     - name: "runner-1"
       env:
         RUNNER_ID: "41f3861d-333d-4b8e-8a3b-53f953d12f07"
