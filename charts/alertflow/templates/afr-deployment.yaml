@@ -29,8 +29,6 @@ spec:
       containers:
         {{- range $index, $element := .Values.runners.containers }}
         - name: runner-{{ $index }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.runners.image }}:{{ .Values.runners.tag }}"
           imagePullPolicy: {{ .Values.runners.pullPolicy }}
           env:
@@ -42,8 +40,6 @@ spec:
               value: "{{ $element.env.ALERTFLOW_APIKEY }}"
             - name: PAYLOADS_ENABLED
               value: "{{ $element.env.PAYLOADS_ENABLED }}"
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
