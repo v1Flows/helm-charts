@@ -29,8 +29,8 @@ spec:
       containers:
         {{- range $index, $element := .Values.runners.containers }}
         - name: runner-{{ $index }}
-          image: "{{ .Values.runners.image }}:{{ .Values.runners.tag }}"
-          imagePullPolicy: {{ .Values.runners.pullPolicy }}
+          image: "{{ $element.image }}:{{ $element.tag }}"
+          imagePullPolicy: {{ $element.pullPolicy }}
           env:
             - name: ALERTFLOW_URL
               value: "https://alertflow.org"
