@@ -129,7 +129,7 @@ ingress:
           pathType: ImplementationSpecific
           serviceName: alertflow
           servicePort: 8080
-        - path: /runners
+        - path: /payloads
           pathType: ImplementationSpecific
           serviceName: alertflow-runners
           servicePort: 8081
