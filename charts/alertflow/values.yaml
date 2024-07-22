@@ -31,7 +31,7 @@ backend:
     DB_PORT: 5432
     DB_USER: postgres
     DB_PASS: password
-    DB_TABLE: alertflow
+    DB_NAME: alertflow
     JWT_KEY: ""
 
 database:

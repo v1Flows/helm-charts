@@ -9,5 +9,5 @@ data:
   DB_PORT: "{{ .Values.backend.env.DB_PORT }}"
   DB_USER: "{{ .Values.backend.env.DB_USER }}"
   DB_PASS: "{{ .Values.backend.env.DB_PASS }}"
-  DB_TABLE: "{{ .Values.backend.env.DB_TABLE }}"
+  DB_NAME: "{{ .Values.backend.env.DB_NAME }}"
   JWT_KEY: "{{ .Values.backend.env.JWT_KEY }}"
