@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ include "alertflow.fullname" . }}-runners"
+  labels:
+    {{- include "alertflow.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.runners.service.type }}
+  ports:
+    - port: {{ .Values.runners.service.port }}
+      targetPort: {{ .Values.runners.service.target_port }}
+      protocol: TCP
+      name: alertflow-runners
+  selector:
+    {{- include "alertflow.runners.selectorLabels" . | nindent 4 }}

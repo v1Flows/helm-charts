@@ -31,6 +31,8 @@ spec:
         - name: runner-{{ $index }}
           image: "{{ $element.image }}:{{ $element.tag }}"
           imagePullPolicy: {{ $element.pullPolicy }}
+          ports:
+            - containerPort: {{ $element.env.PAYLOADS_PORT }}
           env:
             - name: ALERTFLOW_URL
               value: "https://alertflow.org"
@@ -40,6 +42,8 @@ spec:
               value: "{{ $element.env.ALERTFLOW_APIKEY }}"
             - name: PAYLOADS_ENABLED
               value: "{{ $element.env.PAYLOADS_ENABLED }}"
+            - name: PAYLOADS_PORT
+              value: "{{ $element.env.PAYLOADS_PORT }}"
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
