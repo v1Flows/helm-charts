@@ -130,7 +130,7 @@ ingress:
           serviceName: alertflow
           servicePort: 8080
         - path: /runners
-          pathType: Prefix
+          pathType: ImplementationSpecific
           serviceName: alertflow-runners
           servicePort: 8081
   tls:
