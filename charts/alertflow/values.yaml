@@ -39,7 +39,7 @@ database:
   image: postgres
   pullPolicy: Always
   tag: "16-alpine"
-  replicaCount: 3
+  replicaCount: 1
   persistentVolume:
     enabled: true
     size: 50Gi
