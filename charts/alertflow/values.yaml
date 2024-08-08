@@ -42,7 +42,7 @@ database:
   replicaCount: 3
   persistentVolume:
     enabled: true
-    size: 10Gi
+    size: 50Gi
   env:
     POSTGRES_DB: alertflow
     POSTGRES_USER: alertflow
