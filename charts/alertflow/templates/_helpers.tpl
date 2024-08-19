@@ -43,6 +43,15 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{/*
+Selector labels
+*/}}
+{{- define "alertflow.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "alertflow.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+
+{{/*
 Backend Selector labels
 */}}
 {{- define "alertflow.backend.selectorLabels" -}}
