@@ -61,27 +61,27 @@ runners:
   containers:
     - image: harbor.justlab.xyz/alertflow/runner
       pullPolicy: Always
-      tag: "latest"
+      tag: "v0.3.0-beta"
       env:
-        RUNNER_ID: "06921c6d-ad25-441c-8940-9ea9d5f5300b"
-        ALERTFLOW_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiMzAzYWI3MjAtZWE0ZS00MWU4LTllNDktMjIxMjg0OWYyMWIxIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzI5ODgwNDU0NH0.kUHWg6uYwdXkaxaniKIOCSgst1-rE7-SKsvz40xGeDM"
-        PAYLOADS_ENABLED: true
+        RUNNER_ID: "3401314e-4fe3-4430-b6e7-eda9904510fb"
+        ALERTFLOW_URL: "https://alertflow.org/api"
+        ALERTFLOW_API_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiNTA2MGJiNzMtNmM4OC00YzEyLThiZmEtNTY4MzA4YjY5M2M5IiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwMDg1ODIzM30.NlR3IrAdDc7v47RaqDD3sUpyxXR_NhfpAjkWZotd3kk"
         PAYLOADS_PORT: 8081
     - image: harbor.justlab.xyz/alertflow/runner
       pullPolicy: Always
-      tag: "latest"
+      tag: "v0.3.0-beta"
       env:
-        RUNNER_ID: "d75a13a1-0829-4473-b781-e56cff3dc1ef"
-        ALERTFLOW_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiOGFjMjM4NjEtNTE3MC00YzdjLTgyMGEtYWFhOTJjYjc0ZDdlIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzI5ODgwODQzNH0.-s8q4W-lfSggMZIstKu86MrfitqE3j9aHp-eFFaja-M"
-        PAYLOADS_ENABLED: true
+        RUNNER_ID: "595bbb53-22a2-4dd4-ac55-5077782f4aa9"
+        ALERTFLOW_URL: "https://alertflow.org/api"
+        ALERTFLOW_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiMTE1MTFhYzAtOGZkZi00NGM3LThhYWUtN2YwNWUzNjgyZjUyIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwMDg1ODI1M30.U_PoMUSCDE_UMXkzJIH0m5QjUL6S7HuD9bSb035Ka6k"
         PAYLOADS_PORT: 8081
     - image: harbor.justlab.xyz/alertflow/runner
       pullPolicy: Always
-      tag: "latest"
+      tag: "v0.3.0-beta"
       env:
-        RUNNER_ID: "78465f1e-0436-4827-b7b4-eab00ca08cfe"
-        ALERTFLOW_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiNDAxMDk0YmItMjAzZi00YTUwLWE1ODAtZTFmNjQ0NjczY2ViIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzI5ODgwODQ1MH0.KXDI9WXaPBsXBkAJaT8QnjfzNraRnL7B15uSlzSIriY"
-        PAYLOADS_ENABLED: true
+        RUNNER_ID: "75bb5a4a-524b-452a-bdff-20d6e7c530b7"
+        ALERTFLOW_URL: "https://alertflow.org/api"
+        ALERTFLOW_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiYTY0YzRhNzAtNWQ1NS00OTEyLWE3ZjktM2YxY2U0YzQwNTIyIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwMDg1ODI2OH0.DEIT0G8257P7sNywNwX1zB_k1SBnkHy0foXBu65su04"
         PAYLOADS_PORT: 8081
 
 # My Custom Space end
