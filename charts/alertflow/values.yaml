@@ -73,7 +73,7 @@ runners:
       env:
         RUNNER_ID: "595bbb53-22a2-4dd4-ac55-5077782f4aa9"
         ALERTFLOW_URL: "https://alertflow.org/api"
-        ALERTFLOW_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiMTE1MTFhYzAtOGZkZi00NGM3LThhYWUtN2YwNWUzNjgyZjUyIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwMDg1ODI1M30.U_PoMUSCDE_UMXkzJIH0m5QjUL6S7HuD9bSb035Ka6k"
+        ALERTFLOW_API_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiMTE1MTFhYzAtOGZkZi00NGM3LThhYWUtN2YwNWUzNjgyZjUyIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwMDg1ODI1M30.U_PoMUSCDE_UMXkzJIH0m5QjUL6S7HuD9bSb035Ka6k"
         PAYLOADS_PORT: 8081
     - image: harbor.justlab.xyz/alertflow/runner
       pullPolicy: Always
@@ -81,7 +81,7 @@ runners:
       env:
         RUNNER_ID: "75bb5a4a-524b-452a-bdff-20d6e7c530b7"
         ALERTFLOW_URL: "https://alertflow.org/api"
-        ALERTFLOW_APIKEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiYTY0YzRhNzAtNWQ1NS00OTEyLWE3ZjktM2YxY2U0YzQwNTIyIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwMDg1ODI2OH0.DEIT0G8257P7sNywNwX1zB_k1SBnkHy0foXBu65su04"
+        ALERTFLOW_API_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiYTY0YzRhNzAtNWQ1NS00OTEyLWE3ZjktM2YxY2U0YzQwNTIyIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwMDg1ODI2OH0.DEIT0G8257P7sNywNwX1zB_k1SBnkHy0foXBu65su04"
         PAYLOADS_PORT: 8081
 
 # My Custom Space end
