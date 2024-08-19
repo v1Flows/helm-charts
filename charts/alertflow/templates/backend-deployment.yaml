@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "alertflow.fullname" . }}
+  name: {{ include "alertflow.fullname" . }}-backend
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 spec:
@@ -10,7 +10,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      {{- include "alertflow.selectorLabels" . | nindent 6 }}
+      {{- include "alertflow.backend.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "alertflow.selectorLabels" . | nindent 8 }}
+        {{- include "alertflow.backend.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -28,22 +28,6 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: frontend
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.frontend.repository }}:{{ .Values.frontend.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.frontend.pullPolicy }}
-          livenessProbe:
-            httpGet:
-              path: /
-              port: {{ .Values.frontend.service.target_port }}
-          readinessProbe:
-            httpGet:
-              path: /
-              port: {{ .Values.frontend.service.target_port }}
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-
         - name: backend
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}

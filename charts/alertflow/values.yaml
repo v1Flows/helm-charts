@@ -10,7 +10,6 @@ frontend:
   repository: harbor.justlab.xyz/alertflow/frontend
   pullPolicy: Always
   tag: ""
-
   service:
     type: ClusterIP
     port: 80
@@ -20,12 +19,10 @@ backend:
   repository: harbor.justlab.xyz/alertflow/backend
   pullPolicy: Always
   tag: ""
-
   service:
     type: ClusterIP
     port: 8080
     target_port: 8080
-  
   env:
     DB_SERVER: alertflow-postgres
     DB_PORT: 5432
@@ -123,11 +120,11 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
-          serviceName: alertflow
+          serviceName: alertflow-frontend
           servicePort: 80
         - path: /api
           pathType: ImplementationSpecific
-          serviceName: alertflow
+          serviceName: alertflow-backend
           servicePort: 8080
         - path: /payloads
           pathType: ImplementationSpecific

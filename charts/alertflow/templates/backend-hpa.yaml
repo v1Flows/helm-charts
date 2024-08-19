@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "alertflow.fullname" . }}
+  name: {{ include "alertflow.fullname" . }}-backend
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "alertflow.fullname" . }}
+    name: {{ include "alertflow.fullname" . }}-backend
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
