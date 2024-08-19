@@ -34,17 +34,11 @@ spec:
           imagePullPolicy: {{ $element.pullPolicy }}
           ports:
             - containerPort: {{ $element.env.PAYLOADS_PORT }}
-          env:
-            - name: ALERTFLOW_URL
-              value: "https://alertflow.org"
-            - name: RUNNER_ID
-              value: "{{ $element.env.RUNNER_ID }}"
-            - name: ALERTFLOW_APIKEY
-              value: "{{ $element.env.ALERTFLOW_APIKEY }}"
-            - name: PAYLOADS_ENABLED
-              value: "{{ $element.env.PAYLOADS_ENABLED }}"
-            - name: PAYLOADS_PORT
-              value: "{{ $element.env.PAYLOADS_PORT }}"
+          env: 
+            {{- range $key, $value := $element.env }}
+            - name: {{ $key }}
+              value: {{ $value }}
+            {{- end }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
