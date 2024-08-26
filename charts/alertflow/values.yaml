@@ -130,10 +130,25 @@ ingress:
           pathType: ImplementationSpecific
           serviceName: alertflow-runners
           servicePort: 8081
+    - host: www.alertflow.org
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          serviceName: alertflow-frontend
+          servicePort: 80
+        - path: /api
+          pathType: ImplementationSpecific
+          serviceName: alertflow-backend
+          servicePort: 8080
+        - path: /payloads
+          pathType: ImplementationSpecific
+          serviceName: alertflow-runners
+          servicePort: 8081
   tls:
     - secretName: alertflow-org-tls
       hosts:
         - alertflow.org
+        - www.alertflow.org
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
