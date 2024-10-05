@@ -43,14 +43,14 @@ spec:
               port: {{ .Values.backend.service.target_port }}
           {{- if .Values.backend.persistentVolume.enabled }}
           volumeMounts:
-            - name: backendStorage
+            - name: backendstorage
               mountPath: /backend
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- if .Values.backend.persistentVolume.enabled }}
       volumes:
-        - name: backendStorage
+        - name: backendstorage
           persistentVolumeClaim:
             claimName: "{{ include "alertflow.fullname" . }}-backend-pvc"
       {{- end }}
