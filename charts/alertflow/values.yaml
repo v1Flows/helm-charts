@@ -54,7 +54,7 @@ runners:
   containers:
     - image: harbor.justlab.xyz/alertflow/runner
       pullPolicy: Always
-      tag: "v0.6.0-beta"
+      tag: "v0.7.0-beta"
       env:
         RUNNER_ID: "3401314e-4fe3-4430-b6e7-eda9904510fb"
         ALERTFLOW_URL: "https://alertflow.org"
@@ -62,7 +62,7 @@ runners:
         PAYLOADS_PORT: 8081
     - image: harbor.justlab.xyz/alertflow/runner
       pullPolicy: Always
-      tag: "v0.6.0-beta"
+      tag: "v0.7.0-beta"
       env:
         RUNNER_ID: "595bbb53-22a2-4dd4-ac55-5077782f4aa9"
         ALERTFLOW_URL: "https://alertflow.org"
@@ -70,7 +70,7 @@ runners:
         PAYLOADS_PORT: 8081
     - image: harbor.justlab.xyz/alertflow/runner
       pullPolicy: Always
-      tag: "v0.6.0-beta"
+      tag: "v0.7.0-beta"
       env:
         RUNNER_ID: "75bb5a4a-524b-452a-bdff-20d6e7c530b7"
         ALERTFLOW_URL: "https://alertflow.org"
