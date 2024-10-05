@@ -1,0 +1,15 @@
+{{- if .Values.database.persistentVolume.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "{{ include "alertflow.fullname" . }}-backend-pvc"
+  labels:
+    {{- include "alertflow.labels" . | nindent 4 }}
+spec:
+  storageClassName: longhorn
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ .Values.backend.persistentVolume.size }}
+{{- end }}

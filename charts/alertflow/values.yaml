@@ -9,7 +9,7 @@ replicaCount: 3
 frontend:
   repository: harbor.justlab.xyz/alertflow/frontend
   pullPolicy: Always
-  tag: "v0.22.0-beta"
+  tag: ""
   service:
     type: ClusterIP
     port: 80
@@ -19,17 +19,13 @@ backend:
   repository: harbor.justlab.xyz/alertflow/backend
   pullPolicy: Always
   tag: ""
+  persistentVolume:
+    enabled: true
+    size: 1Gi
   service:
     type: ClusterIP
     port: 8080
     target_port: 8080
-  env:
-    DB_SERVER: alertflow-postgres
-    DB_PORT: 5432
-    DB_USER: alertflow
-    DB_PASS: password
-    DB_NAME: alertflow
-    JWT_KEY: ""
 
 database:
   enabled: true

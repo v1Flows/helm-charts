@@ -41,11 +41,19 @@ spec:
             httpGet:
               path: /api/health
               port: {{ .Values.backend.service.target_port }}
-          envFrom:
-            - configMapRef:
-                name: alertflow-backend-config
+          {{- if .Values.backend.persistentVolume.enabled }}
+          volumeMounts:
+            - name: backendStorage
+              mountPath: /backend
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.backend.persistentVolume.enabled }}
+      volumes:
+        - name: backendStorage
+          persistentVolumeClaim:
+            claimName: "{{ include "alertflow.fullname" . }}-backend-pvc"
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
