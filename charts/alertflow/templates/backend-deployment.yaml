@@ -35,11 +35,11 @@ spec:
           imagePullPolicy: {{ .Values.backend.pullPolicy }}
           livenessProbe:
             httpGet:
-              path: /api/health
+              path: /api/v1/health
               port: {{ .Values.backend.service.target_port }}
           readinessProbe:
             httpGet:
-              path: /api/health
+              path: /api/v1/health
               port: {{ .Values.backend.service.target_port }}
           {{- if .Values.backend.configMap.enabled }}
           volumeMounts:
