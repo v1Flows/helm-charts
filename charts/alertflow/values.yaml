@@ -46,7 +46,7 @@ database:
 
 runners:
   enabled: true
-  image: harbor.justlab.xyz/alertflow/runner
+  repository: harbor.justlab.xyz/alertflow/backend
   pullPolicy: Always
   tag: "v0.8.0-beta"
   configMap:
