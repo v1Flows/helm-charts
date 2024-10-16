@@ -103,7 +103,7 @@ ingress:
           servicePort: 8080
         - path: /payloads
           pathType: ImplementationSpecific
-          serviceName: alertflow-runners
+          serviceName: alertflow-runner
           servicePort: 8081
     - host: www.alertflow.org
       paths:
@@ -117,7 +117,7 @@ ingress:
           servicePort: 8080
         - path: /payloads
           pathType: ImplementationSpecific
-          serviceName: alertflow-runners
+          serviceName: alertflow-runner
           servicePort: 8081
   tls:
     - secretName: alertflow-org-tls
