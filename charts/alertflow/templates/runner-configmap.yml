@@ -18,4 +18,4 @@ data:
       Enabled: true
       Port: 8081
       Managers:
-        - Alertmanagere
+        - Alertmanager
