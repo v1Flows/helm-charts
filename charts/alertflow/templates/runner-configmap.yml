@@ -7,12 +7,12 @@ metadata:
 data:
   config.yaml: |
     LogLevel: info
-    RunnerID: a2845f78-b1aa-4b84-9757-30f9210c15eb
+    RunnerID: 540740dc-918d-4a9f-a785-6d94bacafda1
     Mode: master
 
     Alertflow:
       URL: https://alertflow.org
-      APIKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiYjVmNjI3YjktYzMzOS00NjY3LWE2NzItOWYyMGVhMDFjZjBlIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwNDk2Nzg2NX0.UGNjTXnRDSrZ2lGZt0txKBtp3zhdUpkoJKvF-9LYaQ8
+      APIKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiZjAxMDY0M2QtOTljMC00NmMyLWJjOTEtMTMwZjc3ZDM5MDIzIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwNTkxMTg4MX0.BwDtEgzXA-ZIBH1XDFsutDVKCQB7GRpty3MNiMnBnGo
 
     Payloads:
       Enabled: true
