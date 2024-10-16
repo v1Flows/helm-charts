@@ -76,11 +76,11 @@ app.kubernetes.io/instance: {{ .Release.Name }}-postgres
 {{- end }}
 
 {{/*
-Runners Selector labels
+Runner Selector labels
 */}}
-{{- define "alertflow.runners.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "alertflow.name" . }}-runners
-app.kubernetes.io/instance: {{ .Release.Name }}-runners
+{{- define "alertflow.runner.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "alertflow.name" . }}-runner
+app.kubernetes.io/instance: {{ .Release.Name }}-runner
 {{- end }}
 
 {{/*
