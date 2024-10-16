@@ -5,20 +5,21 @@ metadata:
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 data:
-  LogLevel: "info"
+  config.yaml: |
+    LogLevel: "info"
 
-  Database: |
-    Server: alertflow-postgres
-    Port: 5432
-    Name: alertflow
-    User: alertflow
-    Password: eP4,Eg,ogMy2qR?9)K^9
+    Database:
+      Server: alertflow-postgres
+      Port: 5432
+      Name: alertflow
+      User: alertflow
+      Password: P4,Eg,ogMy2qR?9)K^9
 
-  JWT: |
-    Secret: 2Urnw5}K#Ofqb3J^,Qh)!fyD&:Z.QyXZ
+    JWT:
+      Secret: 2Urnw5}K#Ofqb3J^,Qh)!fyD&:Z.QyXZ
 
-  Stripe: |
-    Secret: sk_test_51PryVkFMhsPmbDuUfguapPEvCCZuSB8XY1BLtYVoTz930ePfjkR5DfWnvisQ1v9TiUrTm9GfHW6kbFiBUs3V0OXf00hCXat3q2
+    Stripe:
+      Secret: sk_test_51PryVkFMhsPmbDuUfguapPEvCCZuSB8XY1BLtYVoTz930ePfjkR5DfWnvisQ1v9TiUrTm9GfHW6kbFiBUs3V0OXf00hCXat3q2
 
-  Resend: |
-    APIKey: SG.1H9
+    Resend:
+      APIKey: SG.1H9
