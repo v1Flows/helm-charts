@@ -1,17 +1,17 @@
-{{- if .Values.runners.enabled }}
+{{- if .Values.runner.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: "{{ include "alertflow.fullname" . }}-runners"
+  name: "{{ include "alertflow.fullname" . }}-runner"
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.runners.service.type }}
+  type: {{ .Values.runner.service.type }}
   ports:
-    - port: {{ .Values.runners.service.port }}
-      targetPort: {{ .Values.runners.service.target_port }}
+    - port: {{ .Values.runner.service.port }}
+      targetPort: {{ .Values.runner.service.target_port }}
       protocol: TCP
-      name: alertflow-runners
+      name: alertflow-runner
   selector:
-    {{- include "alertflow.runners.selectorLabels" . | nindent 4 }}
+    {{- include "alertflow.runner.selectorLabels" . | nindent 4 }}
 {{- end }}

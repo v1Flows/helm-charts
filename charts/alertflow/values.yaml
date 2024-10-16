@@ -44,7 +44,7 @@ database:
     port: 5432
     target_port: 5432
 
-runners:
+runner:
   enabled: true
   repository: harbor.justlab.xyz/alertflow/backend
   pullPolicy: Always

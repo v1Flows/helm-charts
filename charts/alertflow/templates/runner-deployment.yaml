@@ -1,15 +1,15 @@
-{{- if .Values.runners.enabled }}
+{{- if .Values.runner.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ include "alertflow.fullname" . }}-runners"
+  name: "{{ include "alertflow.fullname" . }}-runner"
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "alertflow.runners.selectorLabels" . | nindent 6 }}
+      {{- include "alertflow.runner.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -17,8 +17,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        app.kubernetes.io/name: "{{ include "alertflow.fullname" . }}-runners"
-        app.kubernetes.io/instance: "{{ include "alertflow.fullname" . }}-runners"
+        app.kubernetes.io/name: "{{ include "alertflow.fullname" . }}-runner"
+        app.kubernetes.io/instance: "{{ include "alertflow.fullname" . }}-runner"
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
