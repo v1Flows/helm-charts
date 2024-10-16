@@ -19,9 +19,8 @@ backend:
   repository: harbor.justlab.xyz/alertflow/backend
   pullPolicy: Always
   tag: ""
-  persistentVolume:
+  configMap:
     enabled: true
-    size: 1Gi
   service:
     type: ClusterIP
     port: 8080
