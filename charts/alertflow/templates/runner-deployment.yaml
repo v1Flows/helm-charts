@@ -28,22 +28,27 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        {{- range $index, $element := .Values.runners.containers }}
-        - name: runner-{{ $index }}
-          image: "{{ $element.image }}:{{ $element.tag }}"
-          imagePullPolicy: {{ $element.pullPolicy }}
+        - name: runner
+          image: "{{ .Values.runner.repository }}:{{ .Values.runner.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.runner.pullPolicy }}
           ports:
-            - containerPort: {{ $element.env.PAYLOADS_PORT }}
-          env:
-            - name: RUNNER_ID
-              value: "{{ $element.env.RUNNER_ID }}"
-            - name: ALERTFLOW_URL
-              value: "{{ $element.env.ALERTFLOW_URL }}"
-            - name: ALERTFLOW_API_KEY
-              value: "{{ $element.env.ALERTFLOW_API_KEY }}"
-            - name: PAYLOADS_PORT
-              value: "{{ $element.env.PAYLOADS_PORT }}"
-        {{- end }}
+            - containerPort: {{ .Values.runner.service.target_port }}
+          {{- if .Values.runner.configMap.enabled }}
+          volumeMounts:
+            - name: runnerconfig
+              mountPath: /runner/config/config.yaml
+              subPath: config.yaml
+              readOnly: true
+          {{- end }}
+      {{- if .Values.runner.configMap.enabled }}
+      volumes:
+        - name: runnerconfig
+          configMap:
+            name: {{ include "alertflow.fullname" . }}-runner-config
+            items:
+              - key: config.yaml
+                path: config.yaml
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -46,35 +46,15 @@ database:
 
 runners:
   enabled: true
+  image: harbor.justlab.xyz/alertflow/runner
+  pullPolicy: Always
+  tag: "v0.8.0-beta"
+  configMap:
+    enabled: true
   service:
     type: ClusterIP
     port: 8081
     target_port: 8081
-  containers:
-    - image: harbor.justlab.xyz/alertflow/runner
-      pullPolicy: Always
-      tag: "v0.7.0-beta"
-      env:
-        RUNNER_ID: "a2845f78-b1aa-4b84-9757-30f9210c15eb"
-        ALERTFLOW_URL: "https://alertflow.org"
-        ALERTFLOW_API_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiYjVmNjI3YjktYzMzOS00NjY3LWE2NzItOWYyMGVhMDFjZjBlIiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwNDk2Nzg2NX0.UGNjTXnRDSrZ2lGZt0txKBtp3zhdUpkoJKvF-9LYaQ8"
-        PAYLOADS_PORT: 8081
-    - image: harbor.justlab.xyz/alertflow/runner
-      pullPolicy: Always
-      tag: "v0.7.0-beta"
-      env:
-        RUNNER_ID: "b7510dbc-3c11-451f-a73d-85dd8fc5e9b0"
-        ALERTFLOW_URL: "https://alertflow.org"
-        ALERTFLOW_API_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiZWM2YmI1YWMtMDljZC00MTUwLTllMDYtOTM2YmNiODQyYmM3IiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwNDk2Nzg5OH0.iuYUYEulZ3Z1SIycM2F0rlGwm1UbHjzqvI57O-v1x6w"
-        PAYLOADS_PORT: 8081
-    - image: harbor.justlab.xyz/alertflow/runner
-      pullPolicy: Always
-      tag: "v0.7.0-beta"
-      env:
-        RUNNER_ID: "7d9364a7-d1b4-4546-ae99-ecfebc082151"
-        ALERTFLOW_URL: "https://alertflow.org"
-        ALERTFLOW_API_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiYmY0ZmY3NWMtMmE1Zi00MjUxLWJkMWUtMjg0Y2YwZWI4Yzg3IiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwNDk2NzkyNH0.bZw_WhjLGomp4sf-aRnCImBORad7_IwYk5Lg1Md1Sw4"
-        PAYLOADS_PORT: 8081
 
 # My Custom Space end
 
