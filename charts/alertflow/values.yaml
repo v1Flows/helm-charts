@@ -48,7 +48,7 @@ runner:
   enabled: true
   repository: harbor.justlab.xyz/alertflow/runner
   pullPolicy: Always
-  tag: "v0.8.1-beta"
+  tag: "v0.9.0-beta"
   configMap:
     enabled: true
   service:
