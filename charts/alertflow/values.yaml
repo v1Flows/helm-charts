@@ -7,7 +7,7 @@ replicaCount: 3
 # My Custom Space
 
 frontend:
-  repository: harbor.justlab.xyz/alertflow/frontend
+  repository: registry.justlab.xyz/alertflow/frontend
   pullPolicy: Always
   tag: ""
   service:
@@ -16,7 +16,7 @@ frontend:
     target_port: 3000
 
 backend:
-  repository: harbor.justlab.xyz/alertflow/backend
+  repository: registry.justlab.xyz/alertflow/backend
   pullPolicy: Always
   tag: ""
   configMap:
@@ -46,9 +46,9 @@ database:
 
 runner:
   enabled: true
-  repository: harbor.justlab.xyz/alertflow/runner
+  repository: registry.justlab.xyz/alertflow-public/runner
   pullPolicy: Always
-  tag: "v0.10.0-beta"
+  tag: "v0.13.0-beta"
   configMap:
     enabled: true
   service:
@@ -59,7 +59,7 @@ runner:
 # My Custom Space end
 
 imagePullSecrets:
-  - name: docker-cfg
+  - name: gitlab-registry
 nameOverride: ""
 fullnameOverride: ""
 
