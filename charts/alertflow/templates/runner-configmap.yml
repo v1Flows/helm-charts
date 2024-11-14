@@ -14,8 +14,50 @@ data:
       URL: https://alertflow.org
       APIKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiODlmODczNjQtYjhhMy00OTZkLThiZjEtYTkwMTA1Yzc0Y2M2IiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwNzEyMjYwMH0.lq2QCDny_wg_XEEazFaP7eTYy7zIOjDH4ag3uwPD0R0
 
-    Payloads:
-      Enabled: true
+    Plugins:
+      - name: actions-check
+        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/actions-check
+        version: v1.0.2
+
+      - name: collect-data
+        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/collect-data
+        version: v1.0.2
+
+      - name: collect-flow-data
+        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/collect-flow-data
+        version: v1.0.2
+
+      - name: collect-payload-data
+        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/collect-payload-data
+        version: v1.0.2
+
+      - name: pattern-check
+        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/pattern-check
+        version: v1.0.2
+
+      - name: log
+        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/log
+        version: v1.0.2
+
+      - name: wait
+        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/wait
+        version: v1.0.2
+        
+      - name: ping
+        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/ping
+        version: v1.0.2
+      
+      - name: port-checker
+        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/port-checker
+        version: v1.0.0
+
+      - name: interaction
+        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/interaction
+        version: v1.0.0
+
+      - name: alertmanager
+        url: gitlab.justlab.xyz/alertflow-public/runner-payload-plugins/alertmanager
+        version: v1.0.7
+
+    payloadendpoints:
       Port: 8081
-      Managers:
-        - Alertmanager
