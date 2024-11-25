@@ -9,7 +9,7 @@ replicaCount: 4
 frontend:
   repository: registry.justlab.xyz/alertflow/frontend
   pullPolicy: Always
-  tag: ""
+  tag: "v0.30.0-beta"
   service:
     type: ClusterIP
     port: 80
