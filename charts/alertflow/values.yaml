@@ -48,7 +48,7 @@ runner:
   enabled: true
   repository: registry.justlab.xyz/alertflow-public/runner
   pullPolicy: Always
-  tag: "v0.14.1-beta"
+  tag: "v0.15.0-beta"
   configMap:
     enabled: true
   service:
