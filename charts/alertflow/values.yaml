@@ -22,23 +22,19 @@ alertflow:
         port: 8080
         targetPort: 8080
 
-database:
-  enabled: true
-  image: postgres
-  pullPolicy: Always
-  tag: "16-alpine"
-  replicaCount: 1
-  persistentVolume:
-    enabled: true
-    size: 50Gi
-  env:
-    POSTGRES_DB: alertflow
-    POSTGRES_USER: alertflow
-    POSTGRES_PASSWORD: password
-  service:
-    type: ClusterIP
-    port: 5432
-    target_port: 5432
+postgresql:
+  fullnameOverride: postgres
+  databasePort: 5432
+  auth:
+    database: alertflow
+    password: eP4,Eg,ogMy2qR?9)K^9
+    username: alertflow
+  commonLabels:
+    name: postgres
+    component: database
+    manager: helm
+  configmap:
+    name: postgres-configmap
 
 runner:
   enabled: true
