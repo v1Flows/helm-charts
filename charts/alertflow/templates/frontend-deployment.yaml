@@ -44,7 +44,7 @@ spec:
           {{- if .Values.backend.configMap.enabled }}
           volumeMounts:
             - name: config
-              mountPath: /data/config/config.yaml
+              mountPath: /app/config/config.yaml
               subPath: config.yaml
               readOnly: true
           {{- end }}
