@@ -9,7 +9,7 @@ replicaCount: 4
 frontend:
   repository: justnz/alertflow
   pullPolicy: Always
-  tag: ""
+  tag: "debug"
   configMap:
     enabled: true
   service:
