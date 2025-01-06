@@ -50,21 +50,12 @@ app.kubernetes.io/name: {{ include "alertflow.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
-
 {{/*
-Backend Selector labels
+Alertflow Selector labels
 */}}
-{{- define "alertflow.backend.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "alertflow.name" . }}-backend
-app.kubernetes.io/instance: {{ .Release.Name }}-backend
-{{- end }}
-
-{{/*
-Frontend Selector labels
-*/}}
-{{- define "alertflow.frontend.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "alertflow.name" . }}-frontend
-app.kubernetes.io/instance: {{ .Release.Name }}-frontend
+{{- define "alertflow.alertflow.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "alertflow.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
