@@ -36,11 +36,11 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: {{ .Values.alertflow.service.target_port }}
+              port: 3000
           readinessProbe:
             httpGet:
               path: /
-              port: {{ .Values.alertflow.service.target_port }}
+              port: 3000
           {{- if .Values.alertflow.configMap.enabled }}
           volumeMounts:
             - name: config
