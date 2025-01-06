@@ -6,58 +6,12 @@ metadata:
     {{- include "alertflow.labels" . | nindent 4 }}
 data:
   config.yaml: |
-    LogLevel: info
-    RunnerID: 4db06ddb-af76-45f6-a3b0-56fbaf084c20
-    Mode: master
+    logLevel: info
+    mode: master
 
-    Alertflow:
-      URL: https://alertflow.org
-      APIKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0X2lkIjoibm9uZSIsImlkIjoiODlmODczNjQtYjhhMy00OTZkLThiZjEtYTkwMTA1Yzc0Y2M2IiwidHlwZSI6InJ1bm5lciIsImV4cCI6MzMwNzEyMjYwMH0.lq2QCDny_wg_XEEazFaP7eTYy7zIOjDH4ag3uwPD0R0
+    alertflow:
+      url: https://alertflow.org
+      apiKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW5uZXJfaWQiOiIiLCJwcm9qZWN0X2lkIjoiMzlkNGZjZGYtYmNlYi00MWE2LWE4MjgtNWE3MjNhNDUyZjNhIiwiaWQiOiJkYmZhYjhlZS0wM2YyLTRkOGEtYjY5My0xZmJhZGQ3ODcyZWUiLCJ0eXBlIjoicHJvamVjdF9hdXRvX3J1bm5lciIsImV4cCI6MzMxMjk4NzUwNn0.fSw8VqJZIboTGYxNz7fEoeZdv-wi7j8P79mt0Y-YCr8
 
-    Plugins:
-      - name: actions-check
-        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/actions-check
-        version: v1.0.2
-
-      - name: collect-data
-        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/collect-data
-        version: v1.0.2
-
-      - name: collect-flow-data
-        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/collect-flow-data
-        version: v1.0.2
-
-      - name: collect-payload-data
-        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/collect-payload-data
-        version: v1.0.2
-
-      - name: pattern-check
-        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/pattern-check
-        version: v1.0.2
-
-      - name: log
-        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/log
-        version: v1.0.2
-
-      - name: wait
-        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/wait
-        version: v1.0.2
-        
-      - name: ping
-        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/ping
-        version: v1.0.2
-      
-      - name: port-checker
-        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/port-checker
-        version: v1.0.0
-
-      - name: interaction
-        url: gitlab.justlab.xyz/alertflow-public/runner-action-plugins/interaction
-        version: v1.0.0
-
-      - name: alertmanager
-        url: gitlab.justlab.xyz/alertflow-public/runner-payload-plugins/alertmanager
-        version: v1.0.7
-
-    payloadendpoints:
-      Port: 8081
+    payload_endpoints:
+      port: 8081
