@@ -31,7 +31,7 @@ spec:
         - name: frontend
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.frontend.repository }}-{{ .Values.frontend.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.frontend.repository }}:{{ .Values.frontend.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.frontend.pullPolicy }}
           env:
             - name: NEXT_PUBLIC_API_URL

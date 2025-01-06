@@ -7,11 +7,9 @@ replicaCount: 4
 # My Custom Space
 
 frontend:
-  repository: justnz/alertflow:frontend
+  repository: justnz/alertflow
   pullPolicy: Always
   tag: ""
-  env:
-    NEXT_PUBLIC_API_URL: "https://alertflow.org/api"
   service:
     type: ClusterIP
     port: 80
