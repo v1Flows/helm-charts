@@ -22,20 +22,6 @@ alertflow:
         port: 8080
         targetPort: 8080
 
-postgresql:
-  fullnameOverride: postgres
-  databasePort: 5432
-  auth:
-    database: alertflow
-    password: eP4,Eg,ogMy2qR?9)K^9
-    username: alertflow
-  commonLabels:
-    name: postgres
-    component: database
-    manager: helm
-  configmap:
-    name: postgres-configmap
-
 runner:
   enabled: true
   repository: justnz/alertflow-runner
