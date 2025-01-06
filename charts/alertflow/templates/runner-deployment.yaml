@@ -36,7 +36,7 @@ spec:
           {{- if .Values.runner.configMap.enabled }}
           volumeMounts:
             - name: runnerconfig
-              mountPath: /runner/config/config.yaml
+              mountPath: /app/config/config.yaml
               subPath: config.yaml
               readOnly: true
           {{- end }}
