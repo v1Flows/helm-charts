@@ -1,8 +1,0 @@
-postgresql:
-  enabled: true
-  global:
-    postgresql:
-      postgresqlDatabase: "alertflow"
-      postgresqlPassword: "eP4,Eg,ogMy2qR?9)K^9"
-      postgresqlUsername: "alertflow"
-      servicePort: "5432"
