@@ -41,7 +41,7 @@ spec:
             httpGet:
               path: /
               port: {{ .Values.alertflow.service.target_port }}
-          {{- if .Values.backend.configMap.enabled }}
+          {{- if .Values.alertflow.configMap.enabled }}
           volumeMounts:
             - name: config
               mountPath: /app/config/config.yaml
@@ -50,7 +50,7 @@ spec:
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      {{- if .Values.backend.configMap.enabled }}
+      {{- if .Values.alertflow.configMap.enabled }}
       volumes:
         - name: config
           configMap:
