@@ -31,7 +31,7 @@ spec:
         - name: backend
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.backend.repository }}:{{ .Values.backend.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.backend.repository }}-{{ .Values.backend.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.backend.pullPolicy }}
           livenessProbe:
             httpGet:
