@@ -9,7 +9,7 @@ data:
     LogLevel: "info"
 
     Database:
-      Server: alertflow-postgres
+      Server: alertflow-postgresql
       Port: 5432
       Name: alertflow
       User: alertflow
