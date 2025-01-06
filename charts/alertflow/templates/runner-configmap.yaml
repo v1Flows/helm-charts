@@ -13,5 +13,39 @@ data:
       url: https://alertflow.org
       apiKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW5uZXJfaWQiOiIiLCJwcm9qZWN0X2lkIjoiMzlkNGZjZGYtYmNlYi00MWE2LWE4MjgtNWE3MjNhNDUyZjNhIiwiaWQiOiJkYmZhYjhlZS0wM2YyLTRkOGEtYjY5My0xZmJhZGQ3ODcyZWUiLCJ0eXBlIjoicHJvamVjdF9hdXRvX3J1bm5lciIsImV4cCI6MzMxMjk4NzUwNn0.fSw8VqJZIboTGYxNz7fEoeZdv-wi7j8P79mt0Y-YCr8
 
+    Plugins:
+      - name: actions-check
+        version: v1.0.5
+
+      - name: collect-data
+        version: v1.0.5
+
+      - name: collect-flow-data
+        version: v1.0.5
+
+      - name: collect-payload-data
+        version: v1.0.5
+
+      - name: pattern-check
+        version: v1.0.5
+
+      - name: log
+        version: v1.0.5
+
+      - name: wait
+        version: v1.0.5
+
+      - name: ping
+        version: v1.0.5
+
+      - name: port-checker
+        version: v1.0.5
+
+      - name: interaction
+        version: v1.0.5
+
+      - name: alertmanager
+        version: v1.0.10
+
     payload_endpoints:
       port: 8081

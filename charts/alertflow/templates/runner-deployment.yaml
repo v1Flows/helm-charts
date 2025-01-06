@@ -35,19 +35,24 @@ spec:
             - containerPort: {{ .Values.runner.service.target_port }}
           {{- if .Values.runner.configMap.enabled }}
           volumeMounts:
-            - name: runnerconfig
+            - name: runner-config
               mountPath: /app/config/config.yaml
               subPath: config.yaml
               readOnly: true
+            - name: runner-plugins
+              mountPath: /app/plugins
           {{- end }}
       {{- if .Values.runner.configMap.enabled }}
       volumes:
-        - name: runnerconfig
+        - name: runner-config
           configMap:
             name: {{ include "alertflow.fullname" . }}-runner-config
             items:
               - key: config.yaml
                 path: config.yaml
+        - name: runner-plugins
+          persistentVolumeClaim:
+            claimName: "{{ include "alertflow.fullname" . }}-runner-plugin-pvc"
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
