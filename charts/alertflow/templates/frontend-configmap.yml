@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ include "alertflow.fullname" . }}-config"
+  labels:
+    {{- include "alertflow.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+    LogLevel: "info"
+
+    Database:
+      Server: alertflow-postgres
+      Port: 5432
+      Name: alertflow
+      User: alertflow
+      Password: eP4,Eg,ogMy2qR?9)K^9
+
+    JWT:
+      Secret: 2Urnw5}K#Ofqb3J^,Qh)!fyD&:Z.QyXZ

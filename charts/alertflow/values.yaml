@@ -10,6 +10,8 @@ frontend:
   repository: justnz/alertflow
   pullPolicy: Always
   tag: ""
+  configMap:
+    enabled: true
   service:
     type: ClusterIP
     port: 80
