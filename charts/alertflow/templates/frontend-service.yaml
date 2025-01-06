@@ -5,11 +5,13 @@ metadata:
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.frontend.service.type }}
+  type: {{ .Values.alertflow.service.type }}
   ports:
-    - port: {{ .Values.frontend.service.port }}
-      targetPort: {{ .Values.frontend.service.target_port }}
+    {{- range .Values.alertflow.service.ports }}
+    - port: {{ .port }}
+      targetPort: {{ .targetPort }}
       protocol: TCP
-      name: frontend
+      name: {{ .name }}
+    {{- end }}
   selector:
-    {{- include "alertflow.frontend.selectorLabels" . | nindent 4 }}
+    {{- include "alertflow.alertflow.selectorLabels" . | nindent 4 }}

@@ -6,7 +6,7 @@ replicaCount: 4
 
 # My Custom Space
 
-frontend:
+alertflow:
   repository: justnz/alertflow
   pullPolicy: Always
   tag: "debug"
@@ -14,19 +14,13 @@ frontend:
     enabled: true
   service:
     type: ClusterIP
-    port: 80
-    target_port: 3000
-
-backend:
-  repository: justnz/alertflow:backend
-  pullPolicy: Always
-  tag: ""
-  configMap:
-    enabled: true
-  service:
-    type: ClusterIP
-    port: 8080
-    target_port: 8080
+    ports:
+      - name: frontend
+        port: 3000
+        targetPort: 3000
+      - name: backend
+        port: 8080
+        targetPort: 8080
 
 database:
   enabled: true
@@ -97,11 +91,11 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
-          serviceName: alertflow-frontend
-          servicePort: 80
+          serviceName: alertflow
+          servicePort: 3000
         - path: /api
           pathType: ImplementationSpecific
-          serviceName: alertflow-backend
+          serviceName: alertflow
           servicePort: 8080
         - path: /payloads
           pathType: ImplementationSpecific
@@ -111,11 +105,11 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
-          serviceName: alertflow-frontend
-          servicePort: 80
+          serviceName: alertflow
+          servicePort: 3000
         - path: /api
           pathType: ImplementationSpecific
-          serviceName: alertflow-backend
+          serviceName: alertflow
           servicePort: 8080
         - path: /payloads
           pathType: ImplementationSpecific
