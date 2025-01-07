@@ -44,7 +44,7 @@ spec:
           {{- if .Values.alertflow.configMap.enabled }}
           volumeMounts:
             - name: backend-config
-              mountPath: /etc/alertflow
+              mountPath: /etc/alertflow/backend_config.yaml
               subPath: backend_config.yaml
               readOnly: true
           {{- end }}
