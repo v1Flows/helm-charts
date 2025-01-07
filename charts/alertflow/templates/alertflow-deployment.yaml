@@ -43,21 +43,21 @@ spec:
               port: 3000
           {{- if .Values.alertflow.configMap.enabled }}
           volumeMounts:
-            - name: config
-              mountPath: /etc/backend/config/config.yaml
-              subPath: config.yaml
+            - name: backend_config
+              mountPath: /etc/alertflow/backend_config.yaml
+              subPath: backend_config.yaml
               readOnly: true
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- if .Values.alertflow.configMap.enabled }}
       volumes:
-        - name: config
+        - name: backend_config
           configMap:
             name: {{ include "alertflow.fullname" . }}-config
             items:
-              - key: config.yaml
-                path: config.yaml
+              - key: backend_config.yaml
+                path: backend_config.yaml
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
