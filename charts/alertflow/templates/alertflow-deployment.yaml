@@ -44,7 +44,7 @@ spec:
           {{- if .Values.alertflow.configMap.enabled }}
           volumeMounts:
             - name: config
-              mountPath: /app/config/config.yaml
+              mountPath: /etc/backend/config.yaml
               subPath: config.yaml
               readOnly: true
           {{- end }}
