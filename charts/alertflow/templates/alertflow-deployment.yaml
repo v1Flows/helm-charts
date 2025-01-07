@@ -56,8 +56,8 @@ spec:
           configMap:
             name: {{ include "alertflow.fullname" . }}-config
             items:
-              - key: backend_config.yaml
-                path: backend_config.yaml
+              - key: config.yaml
+                path: config.yaml
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
