@@ -45,6 +45,7 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /etc/backend/config/config.yaml
+              subPath: config.yaml
               readOnly: true
           {{- end }}
           resources:
