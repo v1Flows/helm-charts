@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 data:
-  config.yaml: |
+  backend_config.yaml: |
     LogLevel: "info"
 
     Database:
