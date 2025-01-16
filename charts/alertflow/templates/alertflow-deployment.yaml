@@ -47,22 +47,12 @@ spec:
               mountPath: /etc/alertflow/backend_config.yaml
               subPath: backend_config.yaml
               readOnly: true
-            - name: backend-config2
-              mountPath: /app/config/config.yaml
-              subPath: config.yaml
-              readOnly: true
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- if .Values.alertflow.configMap.enabled }}
       volumes:
         - name: backend-config
-          configMap:
-            name: {{ include "alertflow.fullname" . }}-config
-            items:
-              - key: backend_config.yaml
-                path: backend_config.yaml
-        - name: backend-config2
           configMap:
             name: {{ include "alertflow.fullname" . }}-config
             items:
