@@ -23,17 +23,40 @@ spec:
   {{- end }}
   rules:
     {{- range .Values.ingress.hosts }}
-    - host: {{ .host | quote }}
+    - host: {{ . | quote }}
       http:
         paths:
-          {{- range .paths }}
-          - path: {{ .path }}
-            pathType: {{ .pathType }}
+          - path: /
+            pathType: ImplementationSpecific
             backend:
               service:
-                name: {{ .serviceName }}
+                name: {{ .Values.alertflow.service.name }}
                 port:
-                  number: {{ .servicePort }}
+                  number: {{ .Values.alertflow.service.ports[0].port }}
+          - path: /api
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.alertflow.service.name }}
+                port:
+                  number: {{ .Values.alertflow.service.ports[1].port }}
+          {{- if .Values.alertflowRunner.enabled }}
+          - path: /payloads
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.alertflowRunner.service.name }}
+                port:
+                  number: {{ .Values.alertflowRunner.service.port }}
+          {{- end }}
+          {{- if .Values.projectRunner.enabled }}
+          - path: /payloads
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.projectRunner.service.name }}
+                port:
+                  number: {{ .Values.projectRunner.service.port }}
           {{- end }}
     {{- end }}
   {{- end }}

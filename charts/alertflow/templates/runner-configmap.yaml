@@ -1,3 +1,4 @@
+{{- if .Values.projectRunner.enabled and .Values.projectRunner.configMap.enabled }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -5,47 +6,5 @@ metadata:
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 data:
-  config.yaml: |
-    logLevel: info
-    mode: master
-
-    alertflow:
-      url: https://alertflow.org
-      apiKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW5uZXJfaWQiOiIiLCJwcm9qZWN0X2lkIjoiMWUyMjQzMTMtMDc4MS00MjQzLWE1MTAtNjg5ZjYwZTFhZmM2IiwiaWQiOiI3ZmJmYWFlMS0xZTgyLTRjYzctYTg5Yy1hNjJlYTRlZGI5MDkiLCJ0eXBlIjoicHJvamVjdF9hdXRvX3J1bm5lciIsImV4cCI6MzMxMzY0NTY3MX0.QP4BtpV4j8KWr7VA-ltzsQQBDnc0R6hdlIMLq4eAWUE
-
-    Plugins:
-      - name: actions-check
-        version: v1.0.5
-
-      - name: collect-data
-        version: v1.0.5
-
-      - name: collect-flow-data
-        version: v1.0.5
-
-      - name: collect-payload-data
-        version: v1.0.5
-
-      - name: pattern-check
-        version: v1.0.5
-
-      - name: log
-        version: v1.0.5
-
-      - name: wait
-        version: v1.0.5
-
-      - name: ping
-        version: v1.0.5
-
-      - name: port-checker
-        version: v1.0.5
-
-      - name: interaction
-        version: v1.0.5
-
-      - name: alertmanager
-        version: v1.0.10
-
-    payload_endpoints:
-      port: 8081
+  config: {{ .Values.projectRunner.configMap.data }}
+{{- end }}

@@ -1,3 +1,4 @@
+{{- if .Values.projectRunner.enabled and .Values.projectRunner.persistence.enabled }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -7,7 +8,8 @@ metadata:
 spec:
   storageClassName: longhorn
   accessModes:
-    - ReadWriteMany
+    - {{ .Values.projectRunner.persistence.accessMode }}
   resources:
     requests:
-      storage: 5Gi
+      storage: {{ .Values.projectRunner.persistence.size }}
+{{- end }}

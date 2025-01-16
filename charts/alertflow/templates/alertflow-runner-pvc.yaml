@@ -1,0 +1,15 @@
+{{- if .Values.alertflowRunner.persistence.enabled and .Values.alertflowRunner.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "{{ include "alertflow.fullname" . }}-alertflow-runner-plugin-pvc"
+  labels:
+    {{- include "alertflow.labels" . | nindent 4 }}
+spec:
+  storageClassName: longhorn
+  accessModes:
+    - {{ .Values.alertflowRunner.persistence.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.alertflowRunner.persistence.size }}
+{{- end }}

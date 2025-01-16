@@ -1,15 +1,15 @@
-{{- if .Values.projectRunner.enabled }}
+{{- if .Values.alertflowRunner.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ include "alertflow.fullname" . }}-runner"
+  name: "{{ include "alertflow.fullname" . }}-alertflow-runner"
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.projectRunner.replicas }}
+  replicas: {{ .Values.alertflowRunner.replicas }}
   selector:
     matchLabels:
-      {{- include "alertflow.projectRunner.selectorLabels" . | nindent 6 }}
+      {{- include "alertflow.alertflowRunner.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -17,8 +17,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        app.kubernetes.io/name: "{{ include "alertflow.fullname" . }}-runner"
-        app.kubernetes.io/instance: "{{ include "alertflow.fullname" . }}-runner"
+        app.kubernetes.io/name: "{{ include "alertflow.fullname" . }}-alertflow-runner"
+        app.kubernetes.io/instance: "{{ include "alertflow.fullname" . }}-alertflow-runner"
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -29,34 +29,32 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: runner
-          image: "{{ .Values.projectRunner.repository }}:{{ .Values.projectRunner.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.projectRunner.pullPolicy }}
+          image: "{{ .Values.alertflowRunner.repository }}:{{ .Values.alertflowRunner.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.alertflowRunner.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.projectRunner.service.target_port }}
+            - containerPort: {{ .Values.alertflowRunner.service.target_port }}
+          {{- if .Values.alertflowRunner.configMap.enabled }}
           volumeMounts:
-            {{- if .Values.projectRunner.configMap.enabled }}
             - name: runner-config
               mountPath: /app/config/config.yaml
               subPath: config.yaml
               readOnly: true
-            {{- end }}
-            {{- if .Values.projectRunner.persistence.enabled }}
+            {{- if .Values.persistence.enabled }}
             - name: runner-plugins
               mountPath: /app/plugins
             {{- end }}
+          {{- end }}
       volumes:
-        {{- if .Values.projectRunner.configMap.enabled }}
         - name: runner-config
           configMap:
             name: {{ include "alertflow.fullname" . }}-runner-config
             items:
-              - key: config
+              - key: config.yaml
                 path: config.yaml
-        {{- end }}
-        {{- if .Values.projectRunner.persistence.enabled }}
+        {{- if .Values.persistence.enabled }}
         - name: runner-plugins
           persistentVolumeClaim:
-            claimName: "{{ include "alertflow.fullname" . }}-runner-plugin-pvc"
+            claimName: "{{ include "alertflow.fullname" . }}-alertflow-runner-plugin-pvc"
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

@@ -13,6 +13,7 @@ alertflow:
   configMap:
     enabled: true
   service:
+    name: alertflow
     type: ClusterIP
     ports:
       - name: frontend
@@ -28,26 +29,136 @@ postgresql:
     postgresql:
       auth:
         database: "alertflow"
-        password: "eP4,Eg,ogMy2qR?9)K^9"
+        password: "alertflow"
         username: "alertflow"
 
-runner:
-  enabled: true
+projectRunner:
+  enabled: false
   replicas: 4
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v0.19.0-beta"
+  tag: "v0.20.0"
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 5Gi
   configMap:
     enabled: true
+    data: |
+      logLevel: info
+      mode: master
+
+      alertflow:
+        url: http://localhost:8080
+        apiKey: 1234567890
+
+      Plugins:
+        - name: actions-check
+          version: v1.0.5
+
+        - name: collect-data
+          version: v1.0.5
+
+        - name: collect-flow-data
+          version: v1.0.5
+
+        - name: collect-payload-data
+          version: v1.0.5
+
+        - name: pattern-check
+          version: v1.0.5
+
+        - name: log
+          version: v1.0.5
+
+        - name: wait
+          version: v1.0.5
+
+        - name: ping
+          version: v1.0.5
+
+        - name: port-checker
+          version: v1.0.5
+
+        - name: interaction
+          version: v1.0.5
+
+        - name: alertmanager
+          version: v1.0.10
+
+      payload_endpoints:
+        port: 8081
   service:
+    name: project-runner
+    type: ClusterIP
+    port: 8081
+    target_port: 8081
+
+alertflowRunner:
+  enabled: false
+  replicas: 4
+  repository: justnz/alertflow-runner
+  pullPolicy: Always
+  tag: "v0.20.0"
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 5Gi
+  configMap:
+    enabled: true
+    data: |
+      logLevel: info
+      mode: master
+
+      alertflow:
+        url: http://localhost:8080
+        apiKey: 1234567890
+
+      Plugins:
+        - name: actions-check
+          version: v1.0.5
+
+        - name: collect-data
+          version: v1.0.5
+
+        - name: collect-flow-data
+          version: v1.0.5
+
+        - name: collect-payload-data
+          version: v1.0.5
+
+        - name: pattern-check
+          version: v1.0.5
+
+        - name: log
+          version: v1.0.5
+
+        - name: wait
+          version: v1.0.5
+
+        - name: ping
+          version: v1.0.5
+
+        - name: port-checker
+          version: v1.0.5
+
+        - name: interaction
+          version: v1.0.5
+
+        - name: alertmanager
+          version: v1.0.10
+
+      payload_endpoints:
+        port: 8081
+  service:
+    name: alertflow-runner
     type: ClusterIP
     port: 8081
     target_port: 8081
 
 # My Custom Space end
 
-imagePullSecrets:
-  - name: gitlab-registry
+imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
@@ -79,34 +190,8 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: traefik
   hosts:
-    - host: alertflow.org
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-          serviceName: alertflow
-          servicePort: 3000
-        - path: /api
-          pathType: ImplementationSpecific
-          serviceName: alertflow
-          servicePort: 8080
-        - path: /payloads
-          pathType: ImplementationSpecific
-          serviceName: alertflow-runner
-          servicePort: 8081
-    - host: www.alertflow.org
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-          serviceName: alertflow
-          servicePort: 3000
-        - path: /api
-          pathType: ImplementationSpecific
-          serviceName: alertflow
-          servicePort: 8080
-        - path: /payloads
-          pathType: ImplementationSpecific
-          serviceName: alertflow-runner
-          servicePort: 8081
+    - alertflow.org
+    - www.alertflow.org
   tls:
     - secretName: alertflow-org-tls
       hosts:
