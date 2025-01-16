@@ -11,7 +11,7 @@ data:
 
     alertflow:
       url: https://alertflow.org
-      apiKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW5uZXJfaWQiOiIiLCJwcm9qZWN0X2lkIjoiMzlkNGZjZGYtYmNlYi00MWE2LWE4MjgtNWE3MjNhNDUyZjNhIiwiaWQiOiJkYmZhYjhlZS0wM2YyLTRkOGEtYjY5My0xZmJhZGQ3ODcyZWUiLCJ0eXBlIjoicHJvamVjdF9hdXRvX3J1bm5lciIsImV4cCI6MzMxMjk4NzUwNn0.fSw8VqJZIboTGYxNz7fEoeZdv-wi7j8P79mt0Y-YCr8
+      apiKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW5uZXJfaWQiOiIiLCJwcm9qZWN0X2lkIjoiMWUyMjQzMTMtMDc4MS00MjQzLWE1MTAtNjg5ZjYwZTFhZmM2IiwiaWQiOiI3ZmJmYWFlMS0xZTgyLTRjYzctYTg5Yy1hNjJlYTRlZGI5MDkiLCJ0eXBlIjoicHJvamVjdF9hdXRvX3J1bm5lciIsImV4cCI6MzMxMzY0NTY3MX0.QP4BtpV4j8KWr7VA-ltzsQQBDnc0R6hdlIMLq4eAWUE
 
     Plugins:
       - name: actions-check
