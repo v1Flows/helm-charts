@@ -39,7 +39,7 @@ spec:
               mountPath: /app/config/config.yaml
               subPath: config.yaml
               readOnly: true
-            {{- if .Values.persistence.enabled }}
+            {{- if .Values.alertflowRunner.persistence.enabled }}
             - name: runner-plugins
               mountPath: /app/plugins
             {{- end }}
@@ -51,7 +51,7 @@ spec:
             items:
               - key: config.yaml
                 path: config.yaml
-        {{- if .Values.persistence.enabled }}
+        {{- if .Values.alertflowRunner.persistence.enabled }}
         - name: runner-plugins
           persistentVolumeClaim:
             claimName: "{{ include "alertflow.fullname" . }}-alertflow-runner-plugin-pvc"
