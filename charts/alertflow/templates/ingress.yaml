@@ -45,7 +45,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: {{ $.Values.alertflowRunner.service.name }}
+                name: alertflow-{{ $.Values.alertflowRunner.service.name }}
                 port:
                   number: {{ $.Values.alertflowRunner.service.port }}
           {{- end }}
@@ -54,7 +54,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: {{ $.Values.projectRunner.service.name }}
+                name: alertflow-{{ $.Values.projectRunner.service.name }}
                 port:
                   number: {{ $.Values.projectRunner.service.port }}
           {{- end }}
