@@ -28,7 +28,7 @@ spec:
         paths:
           - path: /
             pathType: ImplementationSpecific
-            backend:
+            frontend:
               service:
                 name: {{ .Values.alertflow.service.name }}
                 port:
@@ -43,7 +43,7 @@ spec:
           {{- if .Values.alertflowRunner.enabled }}
           - path: /payloads
             pathType: ImplementationSpecific
-            backend:
+            alertflowRunner:
               service:
                 name: {{ .Values.alertflowRunner.service.name }}
                 port:
@@ -52,7 +52,7 @@ spec:
           {{- if .Values.projectRunner.enabled }}
           - path: /payloads
             pathType: ImplementationSpecific
-            backend:
+            projectRunner:
               service:
                 name: {{ .Values.projectRunner.service.name }}
                 port:
