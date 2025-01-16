@@ -1,4 +1,4 @@
-{{- if .Values.alertflowRunner.persistence.enabled and .Values.alertflowRunner.enabled }}
+{{- if and (.Values.alertflowRunner.persistence.enabled) (.Values.alertflowRunner.enabled) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:

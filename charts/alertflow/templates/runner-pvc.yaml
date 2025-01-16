@@ -1,4 +1,4 @@
-{{- if .Values.projectRunner.enabled and .Values.projectRunner.persistence.enabled }}
+{{- if and (.Values.projectRunner.enabled) (.Values.projectRunner.persistence.enabled) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:

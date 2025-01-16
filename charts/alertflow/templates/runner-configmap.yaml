@@ -1,4 +1,4 @@
-{{- if .Values.projectRunner.enabled and .Values.projectRunner.configMap.enabled }}
+{{- if and (.Values.projectRunner.enabled) (.Values.projectRunner.configMap.enabled) }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
