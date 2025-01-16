@@ -7,11 +7,17 @@ metadata:
 spec:
   type: {{ .Values.alertflow.service.type }}
   ports:
-    {{- range .Values.alertflow.service.ports }}
-    - port: {{ .port }}
-      targetPort: {{ .targetPort }}
+    {{- if .Values.alertflow.service.ports.frontend }}
+    - port: {{ .Values.alertflow.service.ports.frontend.port }}
+      targetPort: {{ .Values.alertflow.service.ports.frontend.targetPort }}
       protocol: TCP
-      name: {{ .name }}
+      name: {{ .Values.alertflow.service.ports.frontend.name }}
+    {{- end }}
+    {{- if .Values.alertflow.service.ports.backend }}
+    - port: {{ .Values.alertflow.service.ports.backend.port }}
+      targetPort: {{ .Values.alertflow.service.ports.backend.targetPort }}
+      protocol: TCP
+      name: {{ .Values.alertflow.service.ports.backend.name }}
     {{- end }}
   selector:
     {{- include "alertflow.alertflow.selectorLabels" . | nindent 4 }}

@@ -32,14 +32,14 @@ spec:
               service:
                 name: {{ .Values.alertflow.service.name }}
                 port:
-                  number: {{ .Values.alertflow.service.ports[0].port }}
+                  number: {{ .Values.alertflow.service.ports.frontend.port }}
           - path: /api
             pathType: ImplementationSpecific
             backend:
               service:
                 name: {{ .Values.alertflow.service.name }}
                 port:
-                  number: {{ .Values.alertflow.service.ports[1].port }}
+                  number: {{ .Values.alertflow.service.ports.backend.port }}
           {{- if .Values.alertflowRunner.enabled }}
           - path: /payloads
             pathType: ImplementationSpecific

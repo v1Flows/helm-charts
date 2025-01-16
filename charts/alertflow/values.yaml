@@ -16,12 +16,14 @@ alertflow:
     name: alertflow
     type: ClusterIP
     ports:
-      - name: frontend
+      frontend:
         port: 3000
         targetPort: 3000
-      - name: backend
+        name: frontend
+      backend:
         port: 8080
         targetPort: 8080
+        name: backend
 
 postgresql:
   enabled: true
