@@ -12,20 +12,17 @@ alertflow:
   tag: ""
   configMap:
     enabled: true
-    data: |-
-      LogLevel: "info"
-
+    data:
+      LogLevel: info
       Database:
         Server: alertflow-postgresql
         Port: 5432
         Name: alertflow
         User: alertflow
         Password: alertflow
-
       Encryption:
         Enabled: true
         Key: key
-
       JWT:
         Secret: secret
   service:
@@ -62,48 +59,35 @@ projectRunner:
     size: 5Gi
   configMap:
     enabled: true
-    data: |-
+    data:
       logLevel: info
       mode: master
-
       alertflow:
         url: http://localhost:8080
         apiKey: 1234567890
-
       Plugins:
         - name: actions-check
           version: v1.0.5
-
         - name: collect-data
           version: v1.0.5
-
         - name: collect-flow-data
           version: v1.0.5
-
         - name: collect-payload-data
           version: v1.0.5
-
         - name: pattern-check
           version: v1.0.5
-
         - name: log
           version: v1.0.5
-
         - name: wait
           version: v1.0.5
-
         - name: ping
           version: v1.0.5
-
         - name: port-checker
           version: v1.0.5
-
         - name: interaction
           version: v1.0.5
-
         - name: alertmanager
           version: v1.0.10
-
       payload_endpoints:
         port: 8081
   service:
@@ -124,48 +108,35 @@ alertflowRunner:
     size: 5Gi
   configMap:
     enabled: true
-    data: |-
+    data:
       logLevel: info
       mode: master
-
       alertflow:
         url: http://localhost:8080
         apiKey: 1234567890
-
       Plugins:
         - name: actions-check
           version: v1.0.5
-
         - name: collect-data
           version: v1.0.5
-
         - name: collect-flow-data
           version: v1.0.5
-
         - name: collect-payload-data
           version: v1.0.5
-
         - name: pattern-check
           version: v1.0.5
-
         - name: log
           version: v1.0.5
-
         - name: wait
           version: v1.0.5
-
         - name: ping
           version: v1.0.5
-
         - name: port-checker
           version: v1.0.5
-
         - name: interaction
           version: v1.0.5
-
         - name: alertmanager
           version: v1.0.10
-
       payload_endpoints:
         port: 8081
   service:
