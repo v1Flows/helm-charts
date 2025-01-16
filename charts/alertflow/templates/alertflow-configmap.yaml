@@ -5,4 +5,4 @@ metadata:
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 data:
-  config: {{ .Values.alertflow.configMap.data }}
+  config: {{ $.Values.alertflow.configMap.data | nindent 8 }}
