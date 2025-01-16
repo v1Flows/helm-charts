@@ -15,5 +15,9 @@ data:
       User: alertflow
       Password: eP4,Eg,ogMy2qR?9)K^9
 
+    Encryption:
+      Enabled: true
+      Key: dw.dkHbrA4nn@pxsbgPhC@r8@7@UXE4m
+
     JWT:
       Secret: 2Urnw5}K#Ofqb3J^,Qh)!fyD&:Z.QyXZ
