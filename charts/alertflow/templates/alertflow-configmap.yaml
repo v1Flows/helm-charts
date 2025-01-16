@@ -5,19 +5,4 @@ metadata:
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 data:
-  backend_config.yaml: |
-    LogLevel: "info"
-
-    Database:
-      Server: alertflow-postgresql
-      Port: 5432
-      Name: alertflow
-      User: alertflow
-      Password: eP4,Eg,ogMy2qR?9)K^9
-
-    Encryption:
-      Enabled: true
-      Key: dw.dkHbrA4nn@pxsbgPhC@r8@7@UXE4m
-
-    JWT:
-      Secret: 2Urnw5}K#Ofqb3J^,Qh)!fyD&:Z.QyXZ
+  config: {{ .Values.alertflow.configMap.data }}

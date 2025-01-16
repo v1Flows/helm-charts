@@ -12,6 +12,22 @@ alertflow:
   tag: ""
   configMap:
     enabled: true
+    data: |
+      LogLevel: "info"
+
+      Database:
+        Server: alertflow-postgresql
+        Port: 5432
+        Name: {{ $.Values.postgresql.global.postgresql.auth.database }}
+        User: {{ $.Values.postgresql.global.postgresql.auth.username }}
+        Password: {{ $.Values.postgresql.global.postgresql.auth.password }}
+
+      Encryption:
+        Enabled: true
+        Key: key
+
+      JWT:
+        Secret: secret
   service:
     name: alertflow
     type: ClusterIP
