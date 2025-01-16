@@ -7,5 +7,5 @@ metadata:
     {{- include "alertflow.labels" . | nindent 4 }}
 data:
   config.yaml: |
-    {{- toYaml $.Values.alertflowRunner.configMap.data | nindent 4 }}
+    {{- toYaml $.Values.alertflowRunner.configMap.data }}
 {{- end }}
