@@ -30,33 +30,33 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: {{ .Values.alertflow.service.name }}
+                name: {{ $.Values.alertflow.service.name }}
                 port:
-                  number: {{ .Values.alertflow.service.ports.frontend.port }}
+                  number: {{ $.Values.alertflow.service.ports.frontend.port }}
           - path: /api
             pathType: ImplementationSpecific
             backend:
               service:
-                name: {{ .Values.alertflow.service.name }}
+                name: {{ $.Values.alertflow.service.name }}
                 port:
-                  number: {{ .Values.alertflow.service.ports.backend.port }}
-          {{- if .Values.alertflowRunner.enabled }}
+                  number: {{ $.Values.alertflow.service.ports.backend.port }}
+          {{- if $.Values.alertflowRunner.enabled }}
           - path: /payloads
             pathType: ImplementationSpecific
             backend:
               service:
-                name: {{ .Values.alertflowRunner.service.name }}
+                name: {{ $.Values.alertflowRunner.service.name }}
                 port:
-                  number: {{ .Values.alertflowRunner.service.port }}
+                  number: {{ $.Values.alertflowRunner.service.port }}
           {{- end }}
-          {{- if .Values.projectRunner.enabled }}
+          {{- if $.Values.projectRunner.enabled }}
           - path: /payloads
             pathType: ImplementationSpecific
             backend:
               service:
-                name: {{ .Values.projectRunner.service.name }}
+                name: {{ $.Values.projectRunner.service.name }}
                 port:
-                  number: {{ .Values.projectRunner.service.port }}
+                  number: {{ $.Values.projectRunner.service.port }}
           {{- end }}
     {{- end }}
   {{- end }}
