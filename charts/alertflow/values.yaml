@@ -12,7 +12,7 @@ alertflow:
   tag: ""
   configMap:
     enabled: true
-    data: |
+    data: |-
       LogLevel: "info"
 
       Database:
@@ -62,7 +62,7 @@ projectRunner:
     size: 5Gi
   configMap:
     enabled: true
-    data: |
+    data: |-
       logLevel: info
       mode: master
 
@@ -124,7 +124,7 @@ alertflowRunner:
     size: 5Gi
   configMap:
     enabled: true
-    data: |
+    data: |-
       logLevel: info
       mode: master
 

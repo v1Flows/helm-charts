@@ -50,7 +50,7 @@ spec:
           configMap:
             name: {{ include "alertflow.fullname" . }}-runner-config
             items:
-              - key: config
+              - key: config.yaml
                 path: config.yaml
         {{- end }}
         {{- if .Values.projectRunner.persistence.enabled }}
