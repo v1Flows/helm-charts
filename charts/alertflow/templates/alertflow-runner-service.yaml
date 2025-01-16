@@ -6,10 +6,10 @@ metadata:
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.runner.service.type }}
+  type: {{ .Values.alertflowRunner.service.type }}
   ports:
-    - port: {{ .Values.runner.service.port }}
-      targetPort: {{ .Values.runner.service.target_port }}
+    - port: {{ .Values.alertflowRunner.service.port }}
+      targetPort: {{ .Values.alertflowRunner.service.target_port }}
       protocol: TCP
       name: alertflow-runner
   selector:
