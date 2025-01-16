@@ -47,7 +47,7 @@ spec:
               mountPath: /etc/alertflow/backend_config.yaml
               subPath: backend_config.yaml
               readOnly: true
-              - name: backend-config2
+            - name: backend-config2
               mountPath: /app/config/config.yaml
               subPath: config.yaml
               readOnly: true
