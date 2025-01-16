@@ -6,5 +6,6 @@ metadata:
   labels:
     {{- include "alertflow.labels" . | nindent 4 }}
 data:
-  config: {{ .Values.projectRunner.configMap.data }}
+  config: | 
+    {{ .Values.projectRunner.configMap.data | indent 4 }}
 {{- end }}
