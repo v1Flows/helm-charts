@@ -52,7 +52,7 @@ projectRunner:
   replicas: 4
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v0.20.0"
+  tag: "v0.21.0"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
@@ -77,11 +77,13 @@ projectRunner:
         - name: pattern-check
           version: v1.0.5
         - name: log
-          version: v1.0.5
+          version: v1.0.6
         - name: wait
           version: v1.0.5
         - name: ping
           version: v1.0.5
+        - name: mail
+          version: v1.0.0
         - name: port-checker
           version: v1.0.5
         - name: interaction
@@ -101,7 +103,7 @@ alertflowRunner:
   replicas: 4
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v0.20.0"
+  tag: "v0.21.0"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
