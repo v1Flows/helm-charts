@@ -60,12 +60,12 @@ projectRunner:
   configMap:
     enabled: true
     data:
-      logLevel: info
+      log_level: info
       mode: master
       alertflow:
         url: http://localhost:8080
-        apiKey: 1234567890
-      Plugins:
+        api_key: 1234567890
+      plugins:
         - name: alertmanager
           repository: https://github.com/AlertFlow/rp-alertmanager
           version: v1.1.0
@@ -93,12 +93,12 @@ alertflowRunner:
   configMap:
     enabled: true
     data:
-      logLevel: info
+      log_level: info
       mode: master
       alertflow:
         url: http://localhost:8080
-        apiKey: 1234567890
-      Plugins:
+        api_key: 1234567890
+      plugins:
         - name: alertmanager
           repository: https://github.com/AlertFlow/rp-alertmanager
           version: v1.1.0
