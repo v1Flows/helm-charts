@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 2
+replicaCount: 1
 
 # My Custom Space
 
@@ -52,7 +52,7 @@ projectRunner:
   replicas: 4
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v0.21.0"
+  tag: "v1.0.0-beta1"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
@@ -66,30 +66,12 @@ projectRunner:
         url: http://localhost:8080
         apiKey: 1234567890
       Plugins:
-        - name: actions-check
-          version: v1.0.5
-        - name: collect-data
-          version: v1.0.5
-        - name: collect-flow-data
-          version: v1.0.5
-        - name: collect-payload-data
-          version: v1.0.5
-        - name: pattern-check
-          version: v1.0.5
-        - name: log
-          version: v1.0.6
-        - name: wait
-          version: v1.0.5
-        - name: ping
-          version: v1.0.5
-        - name: mail
-          version: v1.0.0
-        - name: port-checker
-          version: v1.0.5
-        - name: interaction
-          version: v1.0.5
         - name: alertmanager
-          version: v1.0.10
+          repository: https://github.com/AlertFlow/rp-alertmanager
+          version: v1.1.0
+        - name: collect_data
+          repository: https://github.com/AlertFlow/rp-collect_data
+          version: v1.1.0
       payload_endpoints:
         port: 8081
   service:
@@ -103,7 +85,7 @@ alertflowRunner:
   replicas: 4
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v0.21.0"
+  tag: "v1.0.0-beta1"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
@@ -117,28 +99,12 @@ alertflowRunner:
         url: http://localhost:8080
         apiKey: 1234567890
       Plugins:
-        - name: actions-check
-          version: v1.0.5
-        - name: collect-data
-          version: v1.0.5
-        - name: collect-flow-data
-          version: v1.0.5
-        - name: collect-payload-data
-          version: v1.0.5
-        - name: pattern-check
-          version: v1.0.5
-        - name: log
-          version: v1.0.5
-        - name: wait
-          version: v1.0.5
-        - name: ping
-          version: v1.0.5
-        - name: port-checker
-          version: v1.0.5
-        - name: interaction
-          version: v1.0.5
         - name: alertmanager
-          version: v1.0.10
+          repository: https://github.com/AlertFlow/rp-alertmanager
+          version: v1.1.0
+        - name: collect_data
+          repository: https://github.com/AlertFlow/rp-collect_data
+          version: v1.1.0
       payload_endpoints:
         port: 8081
   service:
