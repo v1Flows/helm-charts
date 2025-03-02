@@ -52,7 +52,7 @@ projectRunner:
   replicas: 4
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v1.0.0-beta4"
+  tag: "v1.0.0-beta5"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
@@ -68,34 +68,34 @@ projectRunner:
       plugins:
         - name: alertmanager
           repository: https://github.com/AlertFlow/rp-alertmanager
-          version: v1.1.0
+          version: v1.1.1
         - name: collect_data
           repository: https://github.com/AlertFlow/rp-collect_data
-          version: v1.1.0
+          version: v1.1.1
         - name: pattern_check
           repository: https://github.com/AlertFlow/rp-pattern_check
-          version: v1.1.0
+          version: v1.1.1
         - name: actions_check
           repository: https://github.com/AlertFlow/rp-actions_check
-          version: v1.1.0
+          version: v1.1.1
         - name: log
           repository: https://github.com/AlertFlow/rp-log
-          version: v1.1.0
+          version: v1.1.1
         - name: wait
           repository: https://github.com/AlertFlow/rp-wait
-          version: v1.1.0
+          version: v1.1.1
         - name: interaction
           repository: https://github.com/AlertFlow/rp-interaction
-          version: v1.1.0
+          version: v1.1.1
         - name: ping
           repository: https://github.com/AlertFlow/rp-ping
-          version: v1.1.0
+          version: v1.1.1
         - name: port_checker
           repository: https://github.com/AlertFlow/rp-port_checker
-          version: v1.1.0
+          version: v1.1.1
         - name: mail
           repository: https://github.com/AlertFlow/rp-mail
-          version: v1.1.0
+          version: v1.1.1
       payload_endpoints:
         port: 8081
   service:
@@ -109,7 +109,7 @@ alertflowRunner:
   replicas: 4
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v1.0.0-beta4"
+  tag: "v1.0.0-beta5"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
@@ -125,34 +125,34 @@ alertflowRunner:
       plugins:
         - name: alertmanager
           repository: https://github.com/AlertFlow/rp-alertmanager
-          version: v1.1.0
+          version: v1.1.1
         - name: collect_data
           repository: https://github.com/AlertFlow/rp-collect_data
-          version: v1.1.0
+          version: v1.1.1
         - name: pattern_check
           repository: https://github.com/AlertFlow/rp-pattern_check
-          version: v1.1.0
+          version: v1.1.1
         - name: actions_check
           repository: https://github.com/AlertFlow/rp-actions_check
-          version: v1.1.0
+          version: v1.1.1
         - name: log
           repository: https://github.com/AlertFlow/rp-log
-          version: v1.1.0
+          version: v1.1.1
         - name: wait
           repository: https://github.com/AlertFlow/rp-wait
-          version: v1.1.0
+          version: v1.1.1
         - name: interaction
           repository: https://github.com/AlertFlow/rp-interaction
-          version: v1.1.0
+          version: v1.1.1
         - name: ping
           repository: https://github.com/AlertFlow/rp-ping
-          version: v1.1.0
+          version: v1.1.1
         - name: port_checker
           repository: https://github.com/AlertFlow/rp-port_checker
-          version: v1.1.0
+          version: v1.1.1
         - name: mail
           repository: https://github.com/AlertFlow/rp-mail
-          version: v1.1.0
+          version: v1.1.1
       payload_endpoints:
         port: 8081
   service:
