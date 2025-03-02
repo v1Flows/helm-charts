@@ -96,7 +96,7 @@ projectRunner:
         - name: mail
           repository: https://github.com/AlertFlow/rp-mail
           version: v1.1.1
-      payload_endpoints:
+      alert_endpoints:
         port: 8081
   service:
     name: project-runner
@@ -153,7 +153,7 @@ alertflowRunner:
         - name: mail
           repository: https://github.com/AlertFlow/rp-mail
           version: v1.1.1
-      payload_endpoints:
+      alert_endpoints:
         port: 8081
   service:
     name: alertflow-runner
