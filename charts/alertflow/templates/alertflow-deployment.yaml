@@ -6,7 +6,7 @@ metadata:
     {{- include "alertflow.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.alertflow.replicas }}
   {{- end }}
   selector:
     matchLabels:
