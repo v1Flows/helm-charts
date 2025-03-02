@@ -41,7 +41,7 @@ spec:
                 port:
                   number: {{ $.Values.alertflow.service.ports.backend.port }}
           {{- if $.Values.alertflowRunner.enabled }}
-          - path: /alerts
+          - path: /alert
             pathType: ImplementationSpecific
             backend:
               service:
@@ -50,7 +50,7 @@ spec:
                   number: {{ $.Values.alertflowRunner.service.port }}
           {{- end }}
           {{- if $.Values.projectRunner.enabled }}
-          - path: /alerts
+          - path: /alert
             pathType: ImplementationSpecific
             backend:
               service:

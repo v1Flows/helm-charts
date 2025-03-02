@@ -50,7 +50,7 @@ projectRunner:
   replicas: 2
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v1.0.0-beta5"
+  tag: "v1.0.0-beta6"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
@@ -107,7 +107,7 @@ alertflowRunner:
   replicas: 2
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v1.0.0-beta5"
+  tag: "v1.0.0-beta6"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
