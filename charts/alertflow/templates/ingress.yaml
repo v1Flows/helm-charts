@@ -42,7 +42,7 @@ spec:
                   number: {{ $.Values.alertflow.service.ports.backend.port }}
           {{- if $.Values.alertflowRunner.enabled }}
           - path: /alert
-            pathType: Prefix
+            pathType: Exact
             backend:
               service:
                 name: alertflow-{{ $.Values.alertflowRunner.service.name }}
@@ -51,7 +51,7 @@ spec:
           {{- end }}
           {{- if $.Values.projectRunner.enabled }}
           - path: /alert
-            pathType: Prefix
+            pathType: Exact
             backend:
               service:
                 name: alertflow-{{ $.Values.projectRunner.service.name }}
