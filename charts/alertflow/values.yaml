@@ -50,7 +50,7 @@ projectRunner:
   replicas: 2
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v1.0.0-beta6"
+  tag: "v1.0.0-beta7"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
@@ -66,7 +66,7 @@ projectRunner:
       plugins:
         - name: alertmanager
           repository: https://github.com/AlertFlow/rp-alertmanager
-          version: v1.1.1
+          version: v1.1.2
         - name: collect_data
           repository: https://github.com/AlertFlow/rp-collect_data
           version: v1.1.1
@@ -107,7 +107,7 @@ alertflowRunner:
   replicas: 2
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v1.0.0-beta6"
+  tag: "v1.0.0-beta7"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
@@ -123,7 +123,7 @@ alertflowRunner:
       plugins:
         - name: alertmanager
           repository: https://github.com/AlertFlow/rp-alertmanager
-          version: v1.1.1
+          version: v1.1.2
         - name: collect_data
           repository: https://github.com/AlertFlow/rp-collect_data
           version: v1.1.1
