@@ -52,7 +52,7 @@ projectRunner:
   pullPolicy: Always
   tag: "v1.0.0-beta7"
   persistence:
-    enabled: true
+    enabled: false
     accessMode: ReadWriteOnce
     size: 5Gi
   configMap:
@@ -109,7 +109,7 @@ alertflowRunner:
   pullPolicy: Always
   tag: "v1.0.0-beta7"
   persistence:
-    enabled: true
+    enabled: false
     accessMode: ReadWriteOnce
     size: 5Gi
   configMap:
