@@ -46,11 +46,11 @@ spec:
           imagePullPolicy: {{ .Values.alertflow.pullPolicy }}
           livenessProbe:
             httpGet:
-              path: /
+              path: /api/v1/health
               port: {{ .Values.alertflow.service.ports.backend.port }}
           readinessProbe:
             httpGet:
-              path: /
+              path: /api/v1/health
               port: {{ .Values.alertflow.service.ports.backend.port }}
           {{- if .Values.alertflow.configMap.enabled }}
           volumeMounts:
