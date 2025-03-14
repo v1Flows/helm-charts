@@ -50,7 +50,7 @@ projectRunner:
   replicas: 2
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v1.0.0-beta7"
+  tag: "v1.0.0-beta8"
   persistence:
     enabled: false
     accessMode: ReadWriteOnce
@@ -95,19 +95,19 @@ projectRunner:
           repository: https://github.com/AlertFlow/rp-mail
           version: v1.1.1
       alert_endpoints:
-        port: 8081
+        port: 8080
   service:
     name: project-runner
     type: ClusterIP
-    port: 8081
-    target_port: 8081
+    port: 8080
+    target_port: 8080
 
 alertflowRunner:
   enabled: false
   replicas: 2
   repository: justnz/alertflow-runner
   pullPolicy: Always
-  tag: "v1.0.0-beta7"
+  tag: "v1.0.0-beta8"
   persistence:
     enabled: false
     accessMode: ReadWriteOnce
@@ -152,12 +152,12 @@ alertflowRunner:
           repository: https://github.com/AlertFlow/rp-mail
           version: v1.1.1
       alert_endpoints:
-        port: 8081
+        port: 8080
   service:
     name: alertflow-runner
     type: ClusterIP
-    port: 8081
-    target_port: 8081
+    port: 8080
+    target_port: 8080
 
 # My Custom Space end
 
