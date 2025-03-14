@@ -7,6 +7,10 @@ metadata:
     {{- include "alertflow.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.alertflowRunner.replicas }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   selector:
     matchLabels:
       {{- include "alertflow.alertflowRunner.selectorLabels" . | nindent 6 }}
@@ -32,7 +36,8 @@ spec:
           image: "{{ .Values.alertflowRunner.repository }}:{{ .Values.alertflowRunner.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.alertflowRunner.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.alertflowRunner.service.target_port }}
+            - name: runner-port
+              containerPort: {{ .Values.alertflowRunner.service.target_port }}
           {{- if .Values.alertflowRunner.configMap.enabled }}
           volumeMounts:
             - name: runner-config
@@ -44,6 +49,12 @@ spec:
               mountPath: /app/plugins
             {{- end }}
           {{- end }}
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: runner-port
+            initialDelaySeconds: 15
+            periodSeconds: 10
       volumes:
         - name: runner-config
           configMap:
