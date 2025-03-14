@@ -8,9 +8,10 @@ metadata:
 spec:
   replicas: {{ .Values.alertflowRunner.replicas }}
   strategy:
+    type: RollingUpdate
     rollingUpdate:
-  maxSurge: 1
-  maxUnavailable: 1
+      maxSurge: 1
+      maxUnavailable: 1
   selector:
     matchLabels:
       {{- include "alertflow.alertflowRunner.selectorLabels" . | nindent 6 }}
