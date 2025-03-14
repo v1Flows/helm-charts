@@ -53,7 +53,7 @@ projectRunner:
   tag: "v1.0.0-beta8"
   persistence:
     enabled: false
-    accessMode: ReadWriteOnce
+    accessMode: ReadWriteMany
     size: 5Gi
   configMap:
     enabled: true
@@ -110,7 +110,7 @@ alertflowRunner:
   tag: "v1.0.0-beta8"
   persistence:
     enabled: false
-    accessMode: ReadWriteOnce
+    accessMode: ReadWriteMany
     size: 5Gi
   configMap:
     enabled: true
