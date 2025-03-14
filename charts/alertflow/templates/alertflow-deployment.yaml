@@ -27,6 +27,17 @@ spec:
       serviceAccountName: {{ include "alertflow.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: wait-for
+          image: ghcr.io/patrickdappollonio/wait-for:latest
+          env:
+          - name: POSTGRES_HOST
+            value: "alertflow-postgresql:5432"
+          command:
+            - /wait-for
+          args:
+            - --host="$(POSTGRES_HOST)"
+            - --verbose
       containers:
         - name: alertflow
           securityContext:
@@ -36,11 +47,11 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: 3000
+              port: {{ .Values.alertflow.service.ports.backend.port }}
           readinessProbe:
             httpGet:
               path: /
-              port: 3000
+              port: {{ .Values.alertflow.service.ports.backend.port }}
           {{- if .Values.alertflow.configMap.enabled }}
           volumeMounts:
             - name: backend-config
