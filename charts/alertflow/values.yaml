@@ -48,7 +48,7 @@ postgresql:
 projectRunner:
   enabled: false
   replicas: 2
-  repository: justnz/alertflow-runner
+  repository: justnz/runner
   pullPolicy: Always
   tag: "v1.0.0-beta9"
   persistence:
@@ -83,7 +83,7 @@ projectRunner:
 alertflowRunner:
   enabled: false
   replicas: 2
-  repository: justnz/alertflow-runner
+  repository: justnz/runner
   pullPolicy: Always
   tag: "v1.0.0-beta9"
   persistence:
