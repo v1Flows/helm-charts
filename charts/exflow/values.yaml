@@ -12,6 +12,7 @@ exflow:
     enabled: true
     data:
       LogLevel: info
+      Port: 8080
       Database:
         Server: exflow-postgresql
         Port: 5432
