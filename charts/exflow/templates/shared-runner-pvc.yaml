@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: "{{ include "exflow.fullname" . }}-exflow-runner-plugin-pvc"
+  name: "{{ include "exflow.fullname" . }}-shared-runner-plugin-pvc"
   labels:
     {{- include "exflow.labels" . | nindent 4 }}
 spec:

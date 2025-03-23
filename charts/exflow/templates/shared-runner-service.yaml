@@ -11,7 +11,7 @@ spec:
     - port: {{ .Values.sharedRunner.service.port }}
       targetPort: {{ .Values.sharedRunner.service.target_port }}
       protocol: TCP
-      name: exflow-runner
+      name: shared-runner
   selector:
     {{- include "exflow.sharedRunner.selectorLabels" . | nindent 4 }}
 {{- end }}
