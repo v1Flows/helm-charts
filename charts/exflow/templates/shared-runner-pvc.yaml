@@ -1,0 +1,15 @@
+{{- if and (.Values.sharedRunner.persistence.enabled) (.Values.sharedRunner.enabled) }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "{{ include "exflow.fullname" . }}-exflow-runner-plugin-pvc"
+  labels:
+    {{- include "exflow.labels" . | nindent 4 }}
+spec:
+  storageClassName: longhorn
+  accessModes:
+    - {{ .Values.sharedRunner.persistence.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.sharedRunner.persistence.size }}
+{{- end }}

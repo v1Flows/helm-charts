@@ -1,0 +1,183 @@
+# Default values for exflow.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+# My Custom Space
+
+exflow:
+  replicas: 1
+  repository: justnz/exflow
+  pullPolicy: Always
+  tag: ""
+  configMap:
+    enabled: true
+    data:
+      LogLevel: info
+      Database:
+        Server: exflow-postgresql
+        Port: 5432
+        Name: exflow
+        User: exflow
+        Password: exflow
+      Encryption:
+        Enabled: true
+        Key: key
+      JWT:
+        Secret: secret
+  service:
+    name: exflow
+    type: ClusterIP
+    ports:
+      frontend:
+        port: 3000
+        targetPort: 3000
+        name: frontend
+      backend:
+        port: 8080
+        targetPort: 8080
+        name: backend
+
+postgresql:
+  enabled: true
+  global:
+    postgresql:
+      auth:
+        database: "exflow"
+        password: "exflow"
+        username: "exflow"
+
+projectRunner:
+  enabled: false
+  replicas: 2
+  repository: justnz/runner
+  pullPolicy: Always
+  tag: "v1.0.0"
+  persistence:
+    enabled: false
+    accessMode: ReadWriteMany
+    size: 5Gi
+  configMap:
+    enabled: true
+    data:
+      log_level: info
+      mode: master
+      alertflow:
+        enabled: false
+      exflow:
+        url: http://localhost:8080
+        api_key: 1234567890
+      plugins:
+        - name: git
+          repository: https://github.com/AlertFlow/rp-git
+          version: v1.0.0
+        - name: ansible
+          repository: https://github.com/AlertFlow/rp-ansible
+          version: v1.0.0
+      alert_endpoints:
+        port: 8080
+  service:
+    name: project-runner
+    type: ClusterIP
+    port: 8080
+    target_port: 8080
+
+sharedRunner:
+  enabled: false
+  replicas: 2
+  repository: justnz/runner
+  pullPolicy: Always
+  tag: "v1.0.0"
+  persistence:
+    enabled: false
+    accessMode: ReadWriteMany
+    size: 5Gi
+  configMap:
+    enabled: true
+    data:
+      log_level: info
+      mode: master
+      alertflow:
+        enabled: false
+      exflow:
+        url: http://localhost:8080
+        api_key: 1234567890
+      plugins:
+        - name: git
+          repository: https://github.com/AlertFlow/rp-git
+          version: v1.0.0
+        - name: ansible
+          repository: https://github.com/AlertFlow/rp-ansible
+          version: v1.0.0
+      alert_endpoints:
+        port: 8080
+  service:
+    name: shared-runner
+    type: ClusterIP
+    port: 8080
+    target_port: 8080
+
+# My Custom Space end
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  hosts:
+    - exflow.org
+    - www.exflow.org
+  tls:
+    - secretName: exflow-org-tls
+      hosts:
+        - exflow.org
+        - www.exflow.org
+
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 400m
+  #   memory: 768Mi
+  requests:
+    cpu: 400m
+    memory: 768Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 3
+  maxReplicas: 15
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

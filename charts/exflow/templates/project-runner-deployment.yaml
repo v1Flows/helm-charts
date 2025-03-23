@@ -1,0 +1,73 @@
+{{- if .Values.projectRunner.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ include "exflow.fullname" . }}-runner"
+  labels:
+    {{- include "exflow.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.projectRunner.replicas }}
+  selector:
+    matchLabels:
+      {{- include "exflow.projectRunner.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app.kubernetes.io/name: "{{ include "exflow.fullname" . }}-runner"
+        app.kubernetes.io/instance: "{{ include "exflow.fullname" . }}-runner"
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "exflow.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: runner
+          image: "{{ .Values.projectRunner.repository }}:{{ .Values.projectRunner.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.projectRunner.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.projectRunner.service.target_port }}
+          volumeMounts:
+            {{- if .Values.projectRunner.configMap.enabled }}
+            - name: runner-config
+              mountPath: /app/config/config.yaml
+              subPath: config.yaml
+              readOnly: true
+            {{- end }}
+            {{- if .Values.projectRunner.persistence.enabled }}
+            - name: runner-plugins
+              mountPath: /app/plugins
+            {{- end }}
+      volumes:
+        {{- if .Values.projectRunner.configMap.enabled }}
+        - name: runner-config
+          configMap:
+            name: {{ include "exflow.fullname" . }}-runner-config
+            items:
+              - key: config.yaml
+                path: config.yaml
+        {{- end }}
+        {{- if .Values.projectRunner.persistence.enabled }}
+        - name: runner-plugins
+          persistentVolumeClaim:
+            claimName: "{{ include "exflow.fullname" . }}-runner-plugin-pvc"
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

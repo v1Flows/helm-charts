@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "exflow.fullname" . }}
+  labels:
+    {{- include "exflow.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.exflow.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "exflow.exflow.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "exflow.exflow.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "exflow.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: wait-for
+          image: ghcr.io/patrickdappollonio/wait-for:latest
+          env:
+          - name: POSTGRES_HOST
+            value: "exflow-postgresql:5432"
+          command:
+            - /wait-for
+          args:
+            - --host="$(POSTGRES_HOST)"
+            - --verbose
+      containers:
+        - name: exflow
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.exflow.repository }}:{{ .Values.exflow.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.exflow.pullPolicy }}
+          livenessProbe:
+            httpGet:
+              path: /api/v1/health
+              port: {{ .Values.exflow.service.ports.backend.port }}
+          readinessProbe:
+            httpGet:
+              path: /api/v1/health
+              port: {{ .Values.exflow.service.ports.backend.port }}
+          {{- if .Values.exflow.configMap.enabled }}
+          volumeMounts:
+            - name: backend-config
+              mountPath: /etc/exflow/backend_config.yaml
+              subPath: backend_config.yaml
+              readOnly: true
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.exflow.configMap.enabled }}
+      volumes:
+        - name: backend-config
+          configMap:
+            name: {{ include "exflow.fullname" . }}-config
+            items:
+              - key: config.yaml
+                path: backend_config.yaml
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

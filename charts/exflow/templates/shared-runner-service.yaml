@@ -1,0 +1,17 @@
+{{- if .Values.sharedRunner.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ include "exflow.fullname" . }}-{{ .Values.sharedRunner.service.name }}"
+  labels:
+    {{- include "exflow.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.sharedRunner.service.type }}
+  ports:
+    - port: {{ .Values.sharedRunner.service.port }}
+      targetPort: {{ .Values.sharedRunner.service.target_port }}
+      protocol: TCP
+      name: exflow-runner
+  selector:
+    {{- include "exflow.sharedRunner.selectorLabels" . | nindent 4 }}
+{{- end }}
