@@ -51,7 +51,7 @@ projectRunner:
   replicas: 2
   repository: justnz/runner
   pullPolicy: Always
-  tag: "v1.0.0"
+  tag: "v1.0.2"
   persistence:
     enabled: false
     accessMode: ReadWriteMany
@@ -86,7 +86,7 @@ sharedRunner:
   replicas: 2
   repository: justnz/runner
   pullPolicy: Always
-  tag: "v1.0.0"
+  tag: "v1.0.2"
   persistence:
     enabled: false
     accessMode: ReadWriteMany
