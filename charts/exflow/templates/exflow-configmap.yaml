@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: "{{ include "exflow.fullname" . }}-config"
   labels:
-    {{ include "exflow.labels" . | indent 4 }}
+    {{- include "exflow.labels" . | nindent 4 }}
 data:
   config.yaml: |-
     {{- toYaml .Values.exflow.configMap.data | nindent 4 }}
