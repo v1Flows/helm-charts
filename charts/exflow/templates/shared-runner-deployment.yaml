@@ -50,12 +50,6 @@ spec:
               mountPath: /app/plugins
             {{- end }}
           {{- end }}
-          readinessProbe:
-            httpGet:
-              path: /ready
-              port: runner-port
-            initialDelaySeconds: 15
-            periodSeconds: 10
       volumes:
         - name: runner-config
           configMap:
