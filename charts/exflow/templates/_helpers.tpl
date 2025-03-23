@@ -78,8 +78,8 @@ app.kubernetes.io/instance: {{ .Release.Name }}-runner
 exflow Runner Selector labels
 */}}
 {{- define "exflow.sharedRunner.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "exflow.name" . }}-exflow-runner
-app.kubernetes.io/instance: {{ .Release.Name }}-exflow-runner
+app.kubernetes.io/name: {{ include "exflow.name" . }}-shared-runner
+app.kubernetes.io/instance: {{ .Release.Name }}-shared-runner
 {{- end }}
 
 {{/*
