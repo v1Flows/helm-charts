@@ -40,23 +40,5 @@ spec:
                 name: {{ $.Values.exflow.service.name }}
                 port:
                   number: {{ $.Values.exflow.service.ports.backend.port }}
-          {{- if $.Values.sharedRunner.enabled }}
-          - path: /alert/
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: exflow-{{ $.Values.sharedRunner.service.name }}
-                port:
-                  number: {{ $.Values.sharedRunner.service.port }}
-          {{- end }}
-          {{- if $.Values.projectRunner.enabled }}
-          - path: /alert/
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: exflow-{{ $.Values.projectRunner.service.name }}
-                port:
-                  number: {{ $.Values.projectRunner.service.port }}
-          {{- end }}
     {{- end }}
   {{- end }}
