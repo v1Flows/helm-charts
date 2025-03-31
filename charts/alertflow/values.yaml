@@ -50,7 +50,7 @@ projectRunner:
   replicas: 2
   repository: justnz/runner
   pullPolicy: Always
-  tag: "v1.0.0"
+  tag: "v1.0.4"
   persistence:
     enabled: false
     accessMode: ReadWriteMany
@@ -67,11 +67,9 @@ projectRunner:
         enabled: false
       plugins:
         - name: alertmanager
-          repository: https://github.com/AlertFlow/rp-alertmanager
-          version: v1.2.0
+          version: v1.2.2
         - name: mail
-          repository: https://github.com/AlertFlow/rp-mail
-          version: v1.1.1
+          version: v1.2.3
       alert_endpoints:
         port: 8080
   service:
@@ -85,7 +83,7 @@ alertflowRunner:
   replicas: 2
   repository: justnz/runner
   pullPolicy: Always
-  tag: "v1.0.0"
+  tag: "v1.0.4"
   persistence:
     enabled: false
     accessMode: ReadWriteMany
@@ -102,11 +100,9 @@ alertflowRunner:
         enabled: false
       plugins:
         - name: alertmanager
-          repository: https://github.com/AlertFlow/rp-alertmanager
-          version: v1.2.0
+          version: v1.2.2
         - name: mail
-          repository: https://github.com/AlertFlow/rp-mail
-          version: v1.1.1
+          version: v1.2.3
       alert_endpoints:
         port: 8080
   service:
