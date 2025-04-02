@@ -38,9 +38,13 @@ alertflow:
 
 postgresql:
   enabled: true
+  volumePermissions:
+    enabled: true
   primary:
-    containerSecurityContext:
-      readOnlyRootFilesystem: false
+    persistence:
+      accessModes:
+        - ReadWriteMany
+      size: 20Gi
   global:
     postgresql:
       auth:
