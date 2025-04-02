@@ -38,6 +38,9 @@ alertflow:
 
 postgresql:
   enabled: true
+  primary:
+    containerSecurityContext:
+      readOnlyRootFilesystem: false
   global:
     postgresql:
       auth:
