@@ -39,9 +39,8 @@ exflow:
 
 postgresql:
   enabled: true
-  primary:
-    containerSecurityContext:
-      readOnlyRootFilesystem: false
+  volumePermissions:
+    enabled: true
   global:
     postgresql:
       auth:
