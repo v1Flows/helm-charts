@@ -21,5 +21,4 @@ jobs:
       - name: Generate README.md
         uses: losisin/helm-docs-github-action@v1
         with:
-          chart-search-root: charts/
           git-push: true
