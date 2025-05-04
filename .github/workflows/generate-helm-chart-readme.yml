@@ -17,18 +17,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up helm-docs
-      - name: Install helm-docs
-        run: |
-          curl -sSL https://github.com/norwoodj/helm-docs/releases/latest/download/helm-docs-linux-amd64.tar.gz | tar xz
-          sudo mv helm-docs /usr/local/bin/
-
-      # Step 3: Generate README.md for all charts
+      # Step 2: Generate README.md using helm-docs GitHub Action
       - name: Generate README.md
-        run: |
-          helm-docs --chart-dirs charts/
+        uses: losisin/helm-docs-github-action@v1
+        with:
+          chart-search-root: charts/
 
-      # Step 4: Commit and push the updated README.md
+      # Step 3: Commit and push the updated README.md
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Actions"
