@@ -1,0 +1,38 @@
+name: Generate Helm Chart README
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger on pull requests to the main branch
+
+jobs:
+  generate-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up helm-docs
+      - name: Install helm-docs
+        run: |
+          curl -sSL https://github.com/norwoodj/helm-docs/releases/latest/download/helm-docs-linux-amd64.tar.gz | tar xz
+          sudo mv helm-docs /usr/local/bin/
+
+      # Step 3: Generate README.md for all charts
+      - name: Generate README.md
+        run: |
+          helm-docs --chart-dirs charts/
+
+      # Step 4: Commit and push the updated README.md
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add charts/**/README.md
+          git commit -m "Update README.md with helm-docs" || echo "No changes to commit"
+          git push origin main
