@@ -81,14 +81,3 @@ Alertflow Runner Selector labels
 app.kubernetes.io/name: {{ include "alertflow.name" . }}-alertflow-runner
 app.kubernetes.io/instance: {{ .Release.Name }}-alertflow-runner
 {{- end }}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "alertflow.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "alertflow.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}
