@@ -27,6 +27,7 @@ spec:
       serviceAccountName: {{ include "exflow.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.postgresql.enabled }}
       initContainers:
         - name: wait-for
           image: ghcr.io/patrickdappollonio/wait-for:latest
@@ -38,6 +39,7 @@ spec:
           args:
             - --host="$(POSTGRES_HOST)"
             - --verbose
+      {{- end }}
       containers:
         - name: exflow
           securityContext:
