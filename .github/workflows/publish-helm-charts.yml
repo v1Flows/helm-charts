@@ -23,6 +23,14 @@ jobs:
         with:
           version: v3.12.0
 
+      - name: Update Helm dependencies
+        run: |
+          for chart in $(ls -d charts/*/); do
+            if [ -f "$chart/Chart.yaml" ]; then
+              helm dependency update $chart
+            fi
+          done
+
        # Package all charts in the charts/ directory
       - name: Package Helm charts
         run: |
