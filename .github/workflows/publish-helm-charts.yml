@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - main  # Trigger on pushes to the main branch
+    paths:
+      - 'charts/**'  # Only trigger if files in the charts/ directory are modified
   pull_request:
     branches:
       - main  # Trigger on pull requests to the main branch
+    paths:
+      - 'charts/**'  # Only trigger if files in the charts/ directory are modified
 
 jobs:
   publish:
