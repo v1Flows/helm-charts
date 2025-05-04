@@ -81,14 +81,3 @@ exflow Runner Selector labels
 app.kubernetes.io/name: {{ include "exflow.name" . }}-shared-runner
 app.kubernetes.io/instance: {{ .Release.Name }}-shared-runner
 {{- end }}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "exflow.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "exflow.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}
