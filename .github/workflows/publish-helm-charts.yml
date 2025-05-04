@@ -52,27 +52,11 @@ jobs:
       # Create or update index.yaml
       - name: Update Helm repository index
         run: |
-          # Check if the gh-pages branch exists
           if git ls-remote --exit-code origin gh-pages; then
-            # Fetch the gh-pages branch
             git fetch origin gh-pages
-            git checkout gh-pages || git checkout --orphan gh-pages
-            # Ensure index.yaml exists
-            if [ ! -f index.yaml ]; then
-              echo "No existing index.yaml found. Initializing a new one."
-              touch index.yaml
-            fi
-          else
-            # Initialize the gh-pages branch if it doesn't exist
-            echo "gh-pages branch does not exist. Initializing it."
-            git checkout --orphan gh-pages
-            touch index.yaml
+            git checkout gh-pages -- index.yaml || echo "No existing index.yaml found"
           fi
-
-          # Merge the new charts into the existing index.yaml
           helm repo index packaged --url https://v1flows.github.io/helm-charts --merge index.yaml
-
-          # Move the packaged charts to the root directory
           mv packaged/* .
 
       # Commit and push to gh-pages branch
