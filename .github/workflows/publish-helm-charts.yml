@@ -23,12 +23,16 @@ jobs:
         with:
           version: v3.12.0
 
-      # Package all charts
+       # Package all charts in the charts/ directory
       - name: Package Helm charts
         run: |
           mkdir -p packaged
-          for chart in $(ls -d */ | grep -v '^packaged/$'); do
-            helm package $chart -d packaged
+          for chart in $(ls -d charts/*/); do
+            if [ -f "$chart/Chart.yaml" ]; then
+              helm package $chart -d packaged
+            else
+              echo "Skipping $chart: Chart.yaml file is missing"
+            fi
           done
 
       # Create or update index.yaml
