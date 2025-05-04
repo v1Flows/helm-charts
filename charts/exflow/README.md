@@ -1,0 +1,126 @@
+# exflow
+
+![Version: 1.4.5](https://img.shields.io/badge/Version-1.4.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.0.0-beta3](https://img.shields.io/badge/AppVersion-v1.0.0--beta3-informational?style=flat-square)
+
+An exFlow Helm chart for Kubernetes
+
+## Requirements
+
+| Repository | Name | Version |
+|------------|------|---------|
+| https://charts.bitnami.com/bitnami | postgresql | 16.5.0 |
+
+## Values
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| autoscaling.enabled | bool | `false` |  |
+| autoscaling.maxReplicas | int | `15` |  |
+| autoscaling.minReplicas | int | `3` |  |
+| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
+| exflow.configMap.data.Database.Name | string | `"exflow"` |  |
+| exflow.configMap.data.Database.Password | string | `"exflow"` |  |
+| exflow.configMap.data.Database.Port | int | `5432` |  |
+| exflow.configMap.data.Database.Server | string | `"exflow-postgresql"` |  |
+| exflow.configMap.data.Database.User | string | `"exflow"` |  |
+| exflow.configMap.data.Encryption.Enabled | bool | `true` |  |
+| exflow.configMap.data.Encryption.Key | string | `"key"` |  |
+| exflow.configMap.data.JWT.Secret | string | `"secret"` |  |
+| exflow.configMap.data.LogLevel | string | `"info"` |  |
+| exflow.configMap.data.Port | int | `8080` |  |
+| exflow.configMap.enabled | bool | `true` |  |
+| exflow.pullPolicy | string | `"Always"` |  |
+| exflow.replicas | int | `1` |  |
+| exflow.repository | string | `"justnz/exflow"` |  |
+| exflow.service.name | string | `"exflow"` |  |
+| exflow.service.ports.backend.name | string | `"backend"` |  |
+| exflow.service.ports.backend.port | int | `8080` |  |
+| exflow.service.ports.backend.targetPort | int | `8080` |  |
+| exflow.service.ports.frontend.name | string | `"frontend"` |  |
+| exflow.service.ports.frontend.port | int | `3000` |  |
+| exflow.service.ports.frontend.targetPort | int | `3000` |  |
+| exflow.service.type | string | `"ClusterIP"` |  |
+| exflow.tag | string | `""` |  |
+| fullnameOverride | string | `""` |  |
+| imagePullSecrets | list | `[]` |  |
+| ingress.annotations."kubernetes.io/ingress.class" | string | `"traefik"` |  |
+| ingress.enabled | bool | `true` |  |
+| ingress.hosts[0] | string | `"exflow.org"` |  |
+| ingress.hosts[1] | string | `"www.exflow.org"` |  |
+| ingress.ingressClassName | string | `"traefik"` |  |
+| ingress.tls[0].hosts[0] | string | `"exflow.org"` |  |
+| ingress.tls[0].hosts[1] | string | `"www.exflow.org"` |  |
+| ingress.tls[0].secretName | string | `"exflow-org-tls"` |  |
+| nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` |  |
+| podAnnotations | object | `{}` |  |
+| podSecurityContext | object | `{}` |  |
+| postgresql.enabled | bool | `true` |  |
+| postgresql.global.postgresql.auth.database | string | `"exflow"` |  |
+| postgresql.global.postgresql.auth.password | string | `"exflow"` |  |
+| postgresql.global.postgresql.auth.username | string | `"exflow"` |  |
+| postgresql.primary.persistence.accessModes[0] | string | `"ReadWriteMany"` |  |
+| postgresql.primary.persistence.size | string | `"20Gi"` |  |
+| postgresql.volumePermissions.enabled | bool | `true` |  |
+| projectRunner.configMap.data.alert_endpoints.port | int | `8080` |  |
+| projectRunner.configMap.data.alertflow.enabled | bool | `false` |  |
+| projectRunner.configMap.data.exflow.api_key | int | `1234567890` |  |
+| projectRunner.configMap.data.exflow.url | string | `"http://localhost:8080"` |  |
+| projectRunner.configMap.data.log_level | string | `"info"` |  |
+| projectRunner.configMap.data.mode | string | `"master"` |  |
+| projectRunner.configMap.data.plugins[0].name | string | `"git"` |  |
+| projectRunner.configMap.data.plugins[0].version | string | `"v1.0.1"` |  |
+| projectRunner.configMap.data.plugins[1].name | string | `"ansible"` |  |
+| projectRunner.configMap.data.plugins[1].version | string | `"v1.0.1"` |  |
+| projectRunner.configMap.data.plugins[2].name | string | `"ssh"` |  |
+| projectRunner.configMap.data.plugins[2].version | string | `"v1.1.3"` |  |
+| projectRunner.configMap.enabled | bool | `true` |  |
+| projectRunner.enabled | bool | `false` |  |
+| projectRunner.persistence.accessMode | string | `"ReadWriteMany"` |  |
+| projectRunner.persistence.enabled | bool | `false` |  |
+| projectRunner.persistence.size | string | `"5Gi"` |  |
+| projectRunner.pullPolicy | string | `"Always"` |  |
+| projectRunner.replicas | int | `2` |  |
+| projectRunner.repository | string | `"justnz/runner"` |  |
+| projectRunner.service.name | string | `"project-runner"` |  |
+| projectRunner.service.port | int | `8080` |  |
+| projectRunner.service.target_port | int | `8080` |  |
+| projectRunner.service.type | string | `"ClusterIP"` |  |
+| projectRunner.tag | string | `"v1.0.4"` |  |
+| resources.requests.cpu | string | `"400m"` |  |
+| resources.requests.memory | string | `"768Mi"` |  |
+| securityContext | object | `{}` |  |
+| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.create | bool | `false` |  |
+| serviceAccount.name | string | `""` |  |
+| sharedRunner.configMap.data.alert_endpoints.port | int | `8080` |  |
+| sharedRunner.configMap.data.alertflow.enabled | bool | `false` |  |
+| sharedRunner.configMap.data.exflow.api_key | int | `1234567890` |  |
+| sharedRunner.configMap.data.exflow.url | string | `"http://localhost:8080"` |  |
+| sharedRunner.configMap.data.log_level | string | `"info"` |  |
+| sharedRunner.configMap.data.mode | string | `"master"` |  |
+| sharedRunner.configMap.data.plugins[0].name | string | `"git"` |  |
+| sharedRunner.configMap.data.plugins[0].version | string | `"v1.0.1"` |  |
+| sharedRunner.configMap.data.plugins[1].name | string | `"ansible"` |  |
+| sharedRunner.configMap.data.plugins[1].version | string | `"v1.0.1"` |  |
+| sharedRunner.configMap.data.plugins[2].name | string | `"ssh"` |  |
+| sharedRunner.configMap.data.plugins[2].version | string | `"v1.1.3"` |  |
+| sharedRunner.configMap.enabled | bool | `true` |  |
+| sharedRunner.enabled | bool | `false` |  |
+| sharedRunner.persistence.accessMode | string | `"ReadWriteMany"` |  |
+| sharedRunner.persistence.enabled | bool | `false` |  |
+| sharedRunner.persistence.size | string | `"5Gi"` |  |
+| sharedRunner.pullPolicy | string | `"Always"` |  |
+| sharedRunner.replicas | int | `2` |  |
+| sharedRunner.repository | string | `"justnz/runner"` |  |
+| sharedRunner.service.name | string | `"shared-runner"` |  |
+| sharedRunner.service.port | int | `8080` |  |
+| sharedRunner.service.target_port | int | `8080` |  |
+| sharedRunner.service.type | string | `"ClusterIP"` |  |
+| sharedRunner.tag | string | `"v1.0.4"` |  |
+| tolerations | list | `[]` |  |
+
+----------------------------------------------
+Autogenerated from chart metadata using [helm-docs v1.14.2](https://github.com/norwoodj/helm-docs/releases/v1.14.2)
