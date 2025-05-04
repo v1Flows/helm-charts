@@ -19,7 +19,7 @@ jobs:
 
       # Step 2: Generate README.md using helm-docs GitHub Action
       - name: Generate README.md
-        uses: losisin/helm-docs-github-action@v1
+        uses: losisin/helm-docs-github-action@v1.5.1
         with:
           chart-search-root: ./charts
           git-push: true
