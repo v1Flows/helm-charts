@@ -1,6 +1,6 @@
 # exflow
 
-![Version: 1.4.9](https://img.shields.io/badge/Version-1.4.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.0.0-beta5](https://img.shields.io/badge/AppVersion-v1.0.0--beta5-informational?style=flat-square)
+![Version: 1.4.10](https://img.shields.io/badge/Version-1.4.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.0.0-beta6](https://img.shields.io/badge/AppVersion-v1.0.0--beta6-informational?style=flat-square)
 
 An exFlow Helm chart for Kubernetes
 
