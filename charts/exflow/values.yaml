@@ -79,7 +79,7 @@ projectRunner:
         - name: ansible
           version: v1.0.3
         - name: ssh
-          version: v1.1.4
+          version: v1.2.0
       alert_endpoints:
         port: 8080
   service:
@@ -114,7 +114,7 @@ sharedRunner:
         - name: ansible
           version: v1.0.3
         - name: ssh
-          version: v1.1.4
+          version: v1.2.0
       alert_endpoints:
         port: 8080
   service:
