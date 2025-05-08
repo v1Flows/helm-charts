@@ -1,6 +1,6 @@
 # exflow
 
-![Version: 1.4.14](https://img.shields.io/badge/Version-1.4.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.0.0-beta9](https://img.shields.io/badge/AppVersion-v1.0.0--beta9-informational?style=flat-square)
+![Version: 1.4.15](https://img.shields.io/badge/Version-1.4.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.0.0-beta9](https://img.shields.io/badge/AppVersion-v1.0.0--beta9-informational?style=flat-square)
 
 An exFlow Helm chart for Kubernetes
 
@@ -71,11 +71,11 @@ An exFlow Helm chart for Kubernetes
 | projectRunner.configMap.data.log_level | string | `"info"` |  |
 | projectRunner.configMap.data.mode | string | `"master"` |  |
 | projectRunner.configMap.data.plugins[0].name | string | `"git"` |  |
-| projectRunner.configMap.data.plugins[0].version | string | `"v1.0.1"` |  |
+| projectRunner.configMap.data.plugins[0].version | string | `"v1.0.3"` |  |
 | projectRunner.configMap.data.plugins[1].name | string | `"ansible"` |  |
-| projectRunner.configMap.data.plugins[1].version | string | `"v1.0.1"` |  |
+| projectRunner.configMap.data.plugins[1].version | string | `"v1.0.3"` |  |
 | projectRunner.configMap.data.plugins[2].name | string | `"ssh"` |  |
-| projectRunner.configMap.data.plugins[2].version | string | `"v1.1.3"` |  |
+| projectRunner.configMap.data.plugins[2].version | string | `"v1.1.4"` |  |
 | projectRunner.configMap.enabled | bool | `true` |  |
 | projectRunner.enabled | bool | `false` |  |
 | projectRunner.persistence.accessMode | string | `"ReadWriteMany"` |  |
@@ -98,11 +98,11 @@ An exFlow Helm chart for Kubernetes
 | sharedRunner.configMap.data.log_level | string | `"info"` |  |
 | sharedRunner.configMap.data.mode | string | `"master"` |  |
 | sharedRunner.configMap.data.plugins[0].name | string | `"git"` |  |
-| sharedRunner.configMap.data.plugins[0].version | string | `"v1.0.1"` |  |
+| sharedRunner.configMap.data.plugins[0].version | string | `"v1.0.3"` |  |
 | sharedRunner.configMap.data.plugins[1].name | string | `"ansible"` |  |
-| sharedRunner.configMap.data.plugins[1].version | string | `"v1.0.1"` |  |
+| sharedRunner.configMap.data.plugins[1].version | string | `"v1.0.3"` |  |
 | sharedRunner.configMap.data.plugins[2].name | string | `"ssh"` |  |
-| sharedRunner.configMap.data.plugins[2].version | string | `"v1.1.3"` |  |
+| sharedRunner.configMap.data.plugins[2].version | string | `"v1.1.4"` |  |
 | sharedRunner.configMap.enabled | bool | `true` |  |
 | sharedRunner.enabled | bool | `false` |  |
 | sharedRunner.persistence.accessMode | string | `"ReadWriteMany"` |  |
