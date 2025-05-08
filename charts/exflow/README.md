@@ -1,6 +1,6 @@
 # exflow
 
-![Version: 1.4.11](https://img.shields.io/badge/Version-1.4.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.0.0-beta7](https://img.shields.io/badge/AppVersion-v1.0.0--beta7-informational?style=flat-square)
+![Version: 1.4.12](https://img.shields.io/badge/Version-1.4.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.0.0-beta8](https://img.shields.io/badge/AppVersion-v1.0.0--beta8-informational?style=flat-square)
 
 An exFlow Helm chart for Kubernetes
 
@@ -88,7 +88,7 @@ An exFlow Helm chart for Kubernetes
 | projectRunner.service.port | int | `8080` |  |
 | projectRunner.service.target_port | int | `8080` |  |
 | projectRunner.service.type | string | `"ClusterIP"` |  |
-| projectRunner.tag | string | `"v1.0.4"` |  |
+| projectRunner.tag | string | `"v1.0.5"` |  |
 | resources.requests | object | `{}` |  |
 | securityContext | object | `{}` |  |
 | sharedRunner.configMap.data.alert_endpoints.port | int | `8080` |  |
@@ -115,7 +115,7 @@ An exFlow Helm chart for Kubernetes
 | sharedRunner.service.port | int | `8080` |  |
 | sharedRunner.service.target_port | int | `8080` |  |
 | sharedRunner.service.type | string | `"ClusterIP"` |  |
-| sharedRunner.tag | string | `"v1.0.4"` |  |
+| sharedRunner.tag | string | `"v1.0.5"` |  |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
