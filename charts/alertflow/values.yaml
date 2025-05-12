@@ -20,6 +20,7 @@ alertflow:
         Password: alertflow
       Encryption:
         Enabled: true
+        # maximum length is 32 characters
         Key: key
       JWT:
         Secret: secret
