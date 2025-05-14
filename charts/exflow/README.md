@@ -26,7 +26,7 @@ An exFlow Helm chart for Kubernetes
 | exflow.configMap.data.Database.Server | string | `"exflow-postgresql"` |  |
 | exflow.configMap.data.Database.User | string | `"exflow"` |  |
 | exflow.configMap.data.Encryption.Enabled | bool | `true` |  |
-| exflow.configMap.data.Encryption.Key | string | `"key"` |  |
+| exflow.configMap.data.Encryption.Key | string | `"key"` | maximum length is 32 characters |
 | exflow.configMap.data.JWT.Secret | string | `"secret"` |  |
 | exflow.configMap.data.LogLevel | string | `"info"` |  |
 | exflow.configMap.data.Port | int | `8080` |  |

@@ -21,7 +21,7 @@ An AlertFlow Helm chart for Kubernetes
 | alertflow.configMap.data.Database.Server | string | `"alertflow-postgresql"` |  |
 | alertflow.configMap.data.Database.User | string | `"alertflow"` |  |
 | alertflow.configMap.data.Encryption.Enabled | bool | `true` |  |
-| alertflow.configMap.data.Encryption.Key | string | `"key"` |  |
+| alertflow.configMap.data.Encryption.Key | string | `"key"` | maximum length is 32 characters |
 | alertflow.configMap.data.JWT.Secret | string | `"secret"` |  |
 | alertflow.configMap.data.LogLevel | string | `"info"` |  |
 | alertflow.configMap.enabled | bool | `true` |  |
