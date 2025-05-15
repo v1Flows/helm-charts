@@ -3,7 +3,7 @@ entries:
   alertflow:
   - apiVersion: v2
     appVersion: v1.4.0
-    created: "2025-05-14T10:01:45.369460577Z"
+    created: "2025-05-15T13:35:37.516452143Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -12,7 +12,7 @@ entries:
       - database
       version: 16.5.0
     description: An AlertFlow Helm chart for Kubernetes
-    digest: 9414ed8390dee88c839103c934efd278b4513e35deff35e86de082a0e354bb11
+    digest: 03cc0ff7b180f9e4e435b2c2a6fd017ea982bb50ebf3ba8cdad8afa3be576572
     name: alertflow
     type: application
     urls:
@@ -20,8 +20,8 @@ entries:
     version: 1.4.7
   exflow:
   - apiVersion: v2
-    appVersion: v1.0.0-beta10
-    created: "2025-05-14T10:01:45.375043972Z"
+    appVersion: v1.0.0-beta11
+    created: "2025-05-15T13:35:37.521847633Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -30,10 +30,10 @@ entries:
       - database
       version: 16.7.4
     description: An exFlow Helm chart for Kubernetes
-    digest: 1f11f6653a839e95e0039484456ab79ab7c1c443ea9499b20407639f91118f87
+    digest: 1d249bb61f85ccc31e7e880bcec30a2beeb5b574b36f3fcbbe9dd3154ae6a4f0
     name: exflow
     type: application
     urls:
-    - https://v1flows.github.io/helm-charts/exflow-1.4.17.tgz
-    version: 1.4.17
-generated: "2025-05-14T10:01:45.36341561Z"
+    - https://v1flows.github.io/helm-charts/exflow-1.4.18.tgz
+    version: 1.4.18
+generated: "2025-05-15T13:35:37.510818378Z"
