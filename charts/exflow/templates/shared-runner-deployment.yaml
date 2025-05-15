@@ -22,8 +22,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        app.kubernetes.io/name: "{{ include "exflow.fullname" . }}-shared-runner"
-        app.kubernetes.io/instance: "{{ include "exflow.fullname" . }}-shared-runner"
+        {{- include "exflow.sharedRunner.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
