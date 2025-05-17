@@ -73,11 +73,11 @@ projectRunner:
         api_key: 1234567890
       plugins:
         - name: git
-          version: v1.0.3
-        - name: ansible
-          version: v1.0.3
-        - name: ssh
           version: v1.2.0
+        - name: ansible
+          version: v1.3.0
+        - name: ssh
+          version: v1.4.0
       alert_endpoints:
         port: 8080
   service:
@@ -108,11 +108,11 @@ sharedRunner:
         api_key: 1234567890
       plugins:
         - name: git
-          version: v1.0.3
-        - name: ansible
-          version: v1.0.3
-        - name: ssh
           version: v1.2.0
+        - name: ansible
+          version: v1.3.0
+        - name: ssh
+          version: v1.4.0
       alert_endpoints:
         port: 8080
   service:
