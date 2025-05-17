@@ -1,6 +1,6 @@
 # exflow
 
-![Version: 1.5.1](https://img.shields.io/badge/Version-1.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.0.0](https://img.shields.io/badge/AppVersion-v1.0.0-informational?style=flat-square)
+![Version: 1.5.2](https://img.shields.io/badge/Version-1.5.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.0.0](https://img.shields.io/badge/AppVersion-v1.0.0-informational?style=flat-square)
 
 An exFlow Helm chart for Kubernetes
 
@@ -73,7 +73,7 @@ An exFlow Helm chart for Kubernetes
 | projectRunner.configMap.data.plugins[0].name | string | `"git"` |  |
 | projectRunner.configMap.data.plugins[0].version | string | `"v1.2.0"` |  |
 | projectRunner.configMap.data.plugins[1].name | string | `"ansible"` |  |
-| projectRunner.configMap.data.plugins[1].version | string | `"v1.3.0"` |  |
+| projectRunner.configMap.data.plugins[1].version | string | `"v1.3.1"` |  |
 | projectRunner.configMap.data.plugins[2].name | string | `"ssh"` |  |
 | projectRunner.configMap.data.plugins[2].version | string | `"v1.4.0"` |  |
 | projectRunner.configMap.enabled | bool | `true` |  |
@@ -100,7 +100,7 @@ An exFlow Helm chart for Kubernetes
 | sharedRunner.configMap.data.plugins[0].name | string | `"git"` |  |
 | sharedRunner.configMap.data.plugins[0].version | string | `"v1.2.0"` |  |
 | sharedRunner.configMap.data.plugins[1].name | string | `"ansible"` |  |
-| sharedRunner.configMap.data.plugins[1].version | string | `"v1.3.0"` |  |
+| sharedRunner.configMap.data.plugins[1].version | string | `"v1.3.1"` |  |
 | sharedRunner.configMap.data.plugins[2].name | string | `"ssh"` |  |
 | sharedRunner.configMap.data.plugins[2].version | string | `"v1.4.0"` |  |
 | sharedRunner.configMap.enabled | bool | `true` |  |
