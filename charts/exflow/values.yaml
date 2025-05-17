@@ -75,7 +75,7 @@ projectRunner:
         - name: git
           version: v1.2.0
         - name: ansible
-          version: v1.3.0
+          version: v1.3.1
         - name: ssh
           version: v1.4.0
       alert_endpoints:
@@ -110,7 +110,7 @@ sharedRunner:
         - name: git
           version: v1.2.0
         - name: ansible
-          version: v1.3.0
+          version: v1.3.1
         - name: ssh
           version: v1.4.0
       alert_endpoints:
