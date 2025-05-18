@@ -1,6 +1,6 @@
 # exflow
 
-![Version: 1.5.3](https://img.shields.io/badge/Version-1.5.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.0.1](https://img.shields.io/badge/AppVersion-v1.0.1-informational?style=flat-square)
+![Version: 1.6.0](https://img.shields.io/badge/Version-1.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.1.1](https://img.shields.io/badge/AppVersion-v1.1.1-informational?style=flat-square)
 
 An exFlow Helm chart for Kubernetes
 
@@ -20,16 +20,16 @@ An exFlow Helm chart for Kubernetes
 | autoscaling.minReplicas | int | `3` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
-| exflow.configMap.data.Database.Name | string | `"exflow"` |  |
-| exflow.configMap.data.Database.Password | string | `"exflow"` |  |
-| exflow.configMap.data.Database.Port | int | `5432` |  |
-| exflow.configMap.data.Database.Server | string | `"exflow-postgresql"` |  |
-| exflow.configMap.data.Database.User | string | `"exflow"` |  |
-| exflow.configMap.data.Encryption.Enabled | bool | `true` |  |
-| exflow.configMap.data.Encryption.Key | string | `"key"` | maximum length is 32 characters |
-| exflow.configMap.data.JWT.Secret | string | `"secret"` |  |
-| exflow.configMap.data.LogLevel | string | `"info"` |  |
-| exflow.configMap.data.Port | int | `8080` |  |
+| exflow.configMap.data.database.name | string | `"exflow"` |  |
+| exflow.configMap.data.database.password | string | `"exflow"` |  |
+| exflow.configMap.data.database.port | int | `5432` |  |
+| exflow.configMap.data.database.server | string | `"exflow-postgresql"` |  |
+| exflow.configMap.data.database.user | string | `"exflow"` |  |
+| exflow.configMap.data.encryption.enabled | bool | `true` |  |
+| exflow.configMap.data.encryption.key | string | `"key"` | maximum length is 32 characters |
+| exflow.configMap.data.jwt.secret | string | `"secret"` |  |
+| exflow.configMap.data.log_level | string | `"info"` |  |
+| exflow.configMap.data.port | int | `8080` |  |
 | exflow.configMap.enabled | bool | `true` |  |
 | exflow.pullPolicy | string | `"Always"` |  |
 | exflow.replicas | int | `1` |  |
