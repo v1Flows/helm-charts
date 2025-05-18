@@ -8,20 +8,20 @@ exflow:
   configMap:
     enabled: true
     data:
-      LogLevel: info
-      Port: 8080
-      Database:
-        Server: exflow-postgresql
-        Port: 5432
-        Name: exflow
-        User: exflow
-        Password: exflow
-      Encryption:
-        Enabled: true
+      log_level: info
+      port: 8080
+      database:
+        server: exflow-postgresql
+        port: 5432
+        name: exflow
+        user: exflow
+        password: exflow
+      encryption:
+        enabled: true
         # -- maximum length is 32 characters
-        Key: key
-      JWT:
-        Secret: secret
+        key: key
+      jwt:
+        secret: secret
   service:
     name: exflow
     type: ClusterIP
