@@ -22,6 +22,8 @@ exflow:
         key: key
       jwt:
         secret: secret
+      runner:
+        shared_runner_secret: secret
   service:
     name: exflow
     type: ClusterIP
@@ -56,7 +58,7 @@ projectRunner:
   replicas: 2
   repository: justnz/runner
   pullPolicy: Always
-  tag: "v1.1.2"
+  tag: "latest"
   persistence:
     enabled: false
     accessMode: ReadWriteMany
@@ -69,17 +71,21 @@ projectRunner:
       alertflow:
         enabled: false
       exflow:
+        enabled: true
         url: http://localhost:8080
-        api_key: 1234567890
+        # runner_id: 1234556789
+        # api_key: 1234567890
       plugins:
         - name: git
-          version: v1.2.0
+          version: latest
         - name: ansible
-          version: v1.3.2
+          version: latest
         - name: ssh
-          version: v1.4.0
-      alert_endpoints:
+          version: latest
+      api_endpoints:
         port: 8080
+      runner:
+        shared_runner_secret: secret
   service:
     name: project-runner
     type: ClusterIP
@@ -91,7 +97,7 @@ sharedRunner:
   replicas: 2
   repository: justnz/runner
   pullPolicy: Always
-  tag: "v1.1.2"
+  tag: "latest"
   persistence:
     enabled: false
     accessMode: ReadWriteMany
@@ -104,17 +110,21 @@ sharedRunner:
       alertflow:
         enabled: false
       exflow:
+        enabled: true
         url: http://localhost:8080
-        api_key: 1234567890
+        # runner_id: 1234556789
+        # api_key: 1234567890
       plugins:
         - name: git
-          version: v1.2.0
+          version: latest
         - name: ansible
-          version: v1.3.2
+          version: latest
         - name: ssh
-          version: v1.4.0
-      alert_endpoints:
+          version: latest
+      api_endpoints:
         port: 8080
+      runner:
+        shared_runner_secret: secret
   service:
     name: shared-runner
     type: ClusterIP
