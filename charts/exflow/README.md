@@ -1,6 +1,6 @@
 # exflow
 
-![Version: 1.7.0](https://img.shields.io/badge/Version-1.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.2.0](https://img.shields.io/badge/AppVersion-v1.2.0-informational?style=flat-square)
+![Version: 1.8.0](https://img.shields.io/badge/Version-1.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.0](https://img.shields.io/badge/AppVersion-v1.3.0-informational?style=flat-square)
 
 An exFlow Helm chart for Kubernetes
 
@@ -30,6 +30,7 @@ An exFlow Helm chart for Kubernetes
 | exflow.configMap.data.jwt.secret | string | `"secret"` |  |
 | exflow.configMap.data.log_level | string | `"info"` |  |
 | exflow.configMap.data.port | int | `8080` |  |
+| exflow.configMap.data.runner.shared_runner_secret | string | `"secret"` |  |
 | exflow.configMap.enabled | bool | `true` |  |
 | exflow.pullPolicy | string | `"Always"` |  |
 | exflow.replicas | int | `1` |  |
@@ -64,18 +65,19 @@ An exFlow Helm chart for Kubernetes
 | postgresql.primary.persistence.accessModes[0] | string | `"ReadWriteMany"` |  |
 | postgresql.primary.persistence.size | string | `"20Gi"` |  |
 | postgresql.volumePermissions.enabled | bool | `true` |  |
-| projectRunner.configMap.data.alert_endpoints.port | int | `8080` |  |
 | projectRunner.configMap.data.alertflow.enabled | bool | `false` |  |
-| projectRunner.configMap.data.exflow.api_key | int | `1234567890` |  |
+| projectRunner.configMap.data.api_endpoints.port | int | `8080` |  |
+| projectRunner.configMap.data.exflow.enabled | bool | `true` |  |
 | projectRunner.configMap.data.exflow.url | string | `"http://localhost:8080"` |  |
 | projectRunner.configMap.data.log_level | string | `"info"` |  |
 | projectRunner.configMap.data.mode | string | `"master"` |  |
 | projectRunner.configMap.data.plugins[0].name | string | `"git"` |  |
-| projectRunner.configMap.data.plugins[0].version | string | `"v1.2.0"` |  |
+| projectRunner.configMap.data.plugins[0].version | string | `"latest"` |  |
 | projectRunner.configMap.data.plugins[1].name | string | `"ansible"` |  |
-| projectRunner.configMap.data.plugins[1].version | string | `"v1.3.2"` |  |
+| projectRunner.configMap.data.plugins[1].version | string | `"latest"` |  |
 | projectRunner.configMap.data.plugins[2].name | string | `"ssh"` |  |
-| projectRunner.configMap.data.plugins[2].version | string | `"v1.4.0"` |  |
+| projectRunner.configMap.data.plugins[2].version | string | `"latest"` |  |
+| projectRunner.configMap.data.runner.shared_runner_secret | string | `"secret"` |  |
 | projectRunner.configMap.enabled | bool | `true` |  |
 | projectRunner.enabled | bool | `false` |  |
 | projectRunner.persistence.accessMode | string | `"ReadWriteMany"` |  |
@@ -88,21 +90,22 @@ An exFlow Helm chart for Kubernetes
 | projectRunner.service.port | int | `8080` |  |
 | projectRunner.service.target_port | int | `8080` |  |
 | projectRunner.service.type | string | `"ClusterIP"` |  |
-| projectRunner.tag | string | `"v1.1.2"` |  |
+| projectRunner.tag | string | `"latest"` |  |
 | resources.requests | object | `{}` |  |
 | securityContext | object | `{}` |  |
-| sharedRunner.configMap.data.alert_endpoints.port | int | `8080` |  |
 | sharedRunner.configMap.data.alertflow.enabled | bool | `false` |  |
-| sharedRunner.configMap.data.exflow.api_key | int | `1234567890` |  |
+| sharedRunner.configMap.data.api_endpoints.port | int | `8080` |  |
+| sharedRunner.configMap.data.exflow.enabled | bool | `true` |  |
 | sharedRunner.configMap.data.exflow.url | string | `"http://localhost:8080"` |  |
 | sharedRunner.configMap.data.log_level | string | `"info"` |  |
 | sharedRunner.configMap.data.mode | string | `"master"` |  |
 | sharedRunner.configMap.data.plugins[0].name | string | `"git"` |  |
-| sharedRunner.configMap.data.plugins[0].version | string | `"v1.2.0"` |  |
+| sharedRunner.configMap.data.plugins[0].version | string | `"latest"` |  |
 | sharedRunner.configMap.data.plugins[1].name | string | `"ansible"` |  |
-| sharedRunner.configMap.data.plugins[1].version | string | `"v1.3.2"` |  |
+| sharedRunner.configMap.data.plugins[1].version | string | `"latest"` |  |
 | sharedRunner.configMap.data.plugins[2].name | string | `"ssh"` |  |
-| sharedRunner.configMap.data.plugins[2].version | string | `"v1.4.0"` |  |
+| sharedRunner.configMap.data.plugins[2].version | string | `"latest"` |  |
+| sharedRunner.configMap.data.runner.shared_runner_secret | string | `"secret"` |  |
 | sharedRunner.configMap.enabled | bool | `true` |  |
 | sharedRunner.enabled | bool | `false` |  |
 | sharedRunner.persistence.accessMode | string | `"ReadWriteMany"` |  |
@@ -115,7 +118,7 @@ An exFlow Helm chart for Kubernetes
 | sharedRunner.service.port | int | `8080` |  |
 | sharedRunner.service.target_port | int | `8080` |  |
 | sharedRunner.service.type | string | `"ClusterIP"` |  |
-| sharedRunner.tag | string | `"v1.1.2"` |  |
+| sharedRunner.tag | string | `"latest"` |  |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
