@@ -2,7 +2,7 @@ apiVersion: v2
 name: exflow
 description: An exFlow Helm chart for Kubernetes
 type: application
-version: 1.8.4
+version: 1.8.5
 appVersion: "v1.3.1"
 
 # add postgresdb
