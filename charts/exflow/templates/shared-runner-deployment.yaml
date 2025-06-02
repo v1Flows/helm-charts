@@ -45,6 +45,7 @@ spec:
             httpGet:
               path: /api/v1/ready
               port: {{ .Values.sharedRunner.service.target_port }}
+            failureThreshold: 30
           {{- if .Values.sharedRunner.configMap.enabled }}
           volumeMounts:
             - name: runner-config
