@@ -41,7 +41,7 @@ spec:
             httpGet:
               path: /api/v1/ready
               port: {{ .Values.sharedRunner.service.target_port }}
-          readinessProbe:
+          startupProbe:
             httpGet:
               path: /api/v1/ready
               port: {{ .Values.sharedRunner.service.target_port }}
