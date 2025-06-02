@@ -39,11 +39,11 @@ spec:
             - containerPort: {{ .Values.projectRunner.service.target_port }}
           livenessProbe:
             httpGet:
-              path: /api/v1/ready
+              path: /ready
               port: {{ .Values.projectRunner.service.target_port }}
           startupProbe:
             httpGet:
-              path: /api/v1/ready
+              path: /ready
               port: {{ .Values.projectRunner.service.target_port }}
             failureThreshold: 30
           volumeMounts:
