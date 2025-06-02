@@ -45,6 +45,7 @@ spec:
             httpGet:
               path: /api/v1/ready
               port: {{ .Values.projectRunner.service.target_port }}
+            failureThreshold: 30
           volumeMounts:
             {{- if .Values.projectRunner.configMap.enabled }}
             - name: runner-config
