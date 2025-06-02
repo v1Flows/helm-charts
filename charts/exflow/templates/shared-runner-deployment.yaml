@@ -37,6 +37,14 @@ spec:
           ports:
             - name: runner-port
               containerPort: {{ .Values.sharedRunner.service.target_port }}
+          livenessProbe:
+            httpGet:
+              path: /api/v1/ready
+              port: {{ .Values.sharedRunner.service.target_port }}
+          readinessProbe:
+            httpGet:
+              path: /api/v1/ready
+              port: {{ .Values.sharedRunner.service.target_port }}
           {{- if .Values.sharedRunner.configMap.enabled }}
           volumeMounts:
             - name: runner-config
