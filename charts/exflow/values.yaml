@@ -62,6 +62,7 @@ projectRunner:
   tag: "latest"
   persistence:
     enabled: false
+    storageClassName: default
     accessMode: ReadWriteMany
     size: 5Gi
   configMap:
@@ -101,6 +102,7 @@ sharedRunner:
   tag: "latest"
   persistence:
     enabled: false
+    storageClassName: default
     accessMode: ReadWriteMany
     size: 5Gi
   configMap:
