@@ -11,7 +11,7 @@ exflow:
       log_level: info
       port: 8080
       database:
-        server: exflow-postgres
+        server: postgres.exflow.svc.cluster.local
         port: 5432
         name: exflow
         user: exflow

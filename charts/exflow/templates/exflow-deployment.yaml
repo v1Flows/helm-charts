@@ -32,7 +32,7 @@ spec:
           image: ghcr.io/patrickdappollonio/wait-for:latest
           env:
           - name: POSTGRES_HOST
-            value: "exflow-postgresql:5432"
+            value: {{ .Values.exflow.configMap.data.database.server | quote }}
           command:
             - /wait-for
           args:
