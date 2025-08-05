@@ -6,6 +6,7 @@ metadata:
   labels:
     {{- include "exflow.labels" . | nindent 4 }}
 spec:
+  storageClassName: {{ .Values.sharedRunner.persistence.storageClassName | default "default" }}
   accessModes:
     - {{ .Values.sharedRunner.persistence.accessMode }}
   resources:
