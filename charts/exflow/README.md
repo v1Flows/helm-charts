@@ -1,6 +1,6 @@
 # exflow
 
-![Version: 1.9.2](https://img.shields.io/badge/Version-1.9.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.0](https://img.shields.io/badge/AppVersion-v1.4.0-informational?style=flat-square)
+![Version: 1.9.3](https://img.shields.io/badge/Version-1.9.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.0](https://img.shields.io/badge/AppVersion-v1.4.0-informational?style=flat-square)
 
 An exFlow Helm chart for Kubernetes
 
@@ -17,7 +17,7 @@ An exFlow Helm chart for Kubernetes
 | exflow.configMap.data.database.name | string | `"exflow"` |  |
 | exflow.configMap.data.database.password | string | `"exflow"` |  |
 | exflow.configMap.data.database.port | int | `5432` |  |
-| exflow.configMap.data.database.server | string | `"exflow-postgres"` |  |
+| exflow.configMap.data.database.server | string | `"postgres.exflow.svc.cluster.local"` |  |
 | exflow.configMap.data.database.user | string | `"exflow"` |  |
 | exflow.configMap.data.encryption.enabled | bool | `true` |  |
 | exflow.configMap.data.encryption.key | string | `"key"` | maximum length is 32 characters |
