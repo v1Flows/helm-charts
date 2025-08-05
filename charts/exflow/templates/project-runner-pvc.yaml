@@ -6,7 +6,6 @@ metadata:
   labels:
     {{- include "exflow.labels" . | nindent 4 }}
 spec:
-  storageClassName: longhorn
   accessModes:
     - {{ .Values.projectRunner.persistence.accessMode }}
   resources:
