@@ -1,6 +1,6 @@
 # exflow
 
-![Version: 1.9.4](https://img.shields.io/badge/Version-1.9.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.0](https://img.shields.io/badge/AppVersion-v1.4.0-informational?style=flat-square)
+![Version: 1.9.5](https://img.shields.io/badge/Version-1.9.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.0](https://img.shields.io/badge/AppVersion-v1.4.0-informational?style=flat-square)
 
 An exFlow Helm chart for Kubernetes
 
@@ -82,6 +82,7 @@ An exFlow Helm chart for Kubernetes
 | projectRunner.persistence.accessMode | string | `"ReadWriteMany"` |  |
 | projectRunner.persistence.enabled | bool | `false` |  |
 | projectRunner.persistence.size | string | `"5Gi"` |  |
+| projectRunner.persistence.storageClassName | string | `"default"` |  |
 | projectRunner.pullPolicy | string | `"Always"` |  |
 | projectRunner.replicas | int | `2` |  |
 | projectRunner.repository | string | `"justnz/runner"` |  |
@@ -110,6 +111,7 @@ An exFlow Helm chart for Kubernetes
 | sharedRunner.persistence.accessMode | string | `"ReadWriteMany"` |  |
 | sharedRunner.persistence.enabled | bool | `false` |  |
 | sharedRunner.persistence.size | string | `"5Gi"` |  |
+| sharedRunner.persistence.storageClassName | string | `"default"` |  |
 | sharedRunner.pullPolicy | string | `"Always"` |  |
 | sharedRunner.replicas | int | `2` |  |
 | sharedRunner.repository | string | `"justnz/runner"` |  |
