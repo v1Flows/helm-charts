@@ -1,0 +1,12 @@
+{{- if (.Values.postgresql.enabled)  }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-secret
+  labels:
+    app: postgres
+data:
+  POSTGRES_DB: {{ .Values.postgresql.auth.database | default "exflow" }}
+  POSTGRES_USER: {{ .Values.postgresql.auth.username | default "exflow" }}
+  POSTGRES_PASSWORD: {{ .Values.postgresql.auth.password | default "exflow" }}
+{{- end }}

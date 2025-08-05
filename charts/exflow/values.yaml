@@ -11,7 +11,7 @@ exflow:
       log_level: info
       port: 8080
       database:
-        server: exflow-postgresql
+        server: exflow-postgres
         port: 5432
         name: exflow
         user: exflow
@@ -39,19 +39,20 @@ exflow:
 
 postgresql:
   enabled: true
-  volumePermissions:
+  replicas: 1
+  image: 'postgres:16'
+  pullPolicy: IfNotPresent
+  persistence:
     enabled: true
-  primary:
-    persistence:
-      accessModes:
-        - ReadWriteMany
-      size: 20Gi
-  global:
-    postgresql:
-      auth:
-        database: "exflow"
-        password: "exflow"
-        username: "exflow"
+    storageClassName: default
+    size: 20Gi
+  auth:
+    database: "exflow"
+    password: "exflow"
+    username: "exflow"
+  service:
+    type: ClusterIP
+    port: 5432
 
 projectRunner:
   enabled: false
