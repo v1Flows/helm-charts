@@ -1,6 +1,6 @@
 # exflow
 
-![Version: 1.9.0](https://img.shields.io/badge/Version-1.9.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.0](https://img.shields.io/badge/AppVersion-v1.4.0-informational?style=flat-square)
+![Version: 1.9.1](https://img.shields.io/badge/Version-1.9.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.0](https://img.shields.io/badge/AppVersion-v1.4.0-informational?style=flat-square)
 
 An exFlow Helm chart for Kubernetes
 
@@ -8,7 +8,7 @@ An exFlow Helm chart for Kubernetes
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | postgresql | 16.7.4 |
+| https://charts.bitnami.com/bitnami | postgresql | 16.7.21 |
 
 ## Values
 
@@ -47,7 +47,7 @@ An exFlow Helm chart for Kubernetes
 | fullnameOverride | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations."kubernetes.io/ingress.class" | string | `"traefik"` |  |
-| ingress.enabled | bool | `true` |  |
+| ingress.enabled | bool | `false` |  |
 | ingress.hosts[0] | string | `"exflow.org"` |  |
 | ingress.hosts[1] | string | `"www.exflow.org"` |  |
 | ingress.ingressClassName | string | `"traefik"` |  |
