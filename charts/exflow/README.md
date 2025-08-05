@@ -1,14 +1,8 @@
 # exflow
 
-![Version: 1.9.1](https://img.shields.io/badge/Version-1.9.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.0](https://img.shields.io/badge/AppVersion-v1.4.0-informational?style=flat-square)
+![Version: 1.9.2](https://img.shields.io/badge/Version-1.9.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.0](https://img.shields.io/badge/AppVersion-v1.4.0-informational?style=flat-square)
 
 An exFlow Helm chart for Kubernetes
-
-## Requirements
-
-| Repository | Name | Version |
-|------------|------|---------|
-| https://charts.bitnami.com/bitnami | postgresql | 16.7.21 |
 
 ## Values
 
@@ -23,7 +17,7 @@ An exFlow Helm chart for Kubernetes
 | exflow.configMap.data.database.name | string | `"exflow"` |  |
 | exflow.configMap.data.database.password | string | `"exflow"` |  |
 | exflow.configMap.data.database.port | int | `5432` |  |
-| exflow.configMap.data.database.server | string | `"exflow-postgresql"` |  |
+| exflow.configMap.data.database.server | string | `"exflow-postgres"` |  |
 | exflow.configMap.data.database.user | string | `"exflow"` |  |
 | exflow.configMap.data.encryption.enabled | bool | `true` |  |
 | exflow.configMap.data.encryption.key | string | `"key"` | maximum length is 32 characters |
@@ -58,13 +52,18 @@ An exFlow Helm chart for Kubernetes
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
+| postgresql.auth.database | string | `"exflow"` |  |
+| postgresql.auth.password | string | `"exflow"` |  |
+| postgresql.auth.username | string | `"exflow"` |  |
 | postgresql.enabled | bool | `true` |  |
-| postgresql.global.postgresql.auth.database | string | `"exflow"` |  |
-| postgresql.global.postgresql.auth.password | string | `"exflow"` |  |
-| postgresql.global.postgresql.auth.username | string | `"exflow"` |  |
-| postgresql.primary.persistence.accessModes[0] | string | `"ReadWriteMany"` |  |
-| postgresql.primary.persistence.size | string | `"20Gi"` |  |
-| postgresql.volumePermissions.enabled | bool | `true` |  |
+| postgresql.image | string | `"postgres:16"` |  |
+| postgresql.persistence.enabled | bool | `true` |  |
+| postgresql.persistence.size | string | `"20Gi"` |  |
+| postgresql.persistence.storageClassName | string | `"default"` |  |
+| postgresql.pullPolicy | string | `"IfNotPresent"` |  |
+| postgresql.replicas | int | `1` |  |
+| postgresql.service.port | int | `5432` |  |
+| postgresql.service.type | string | `"ClusterIP"` |  |
 | projectRunner.configMap.data.alertflow.enabled | bool | `false` |  |
 | projectRunner.configMap.data.api_endpoints.port | int | `8080` |  |
 | projectRunner.configMap.data.exflow.enabled | bool | `true` |  |
