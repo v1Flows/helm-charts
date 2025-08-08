@@ -2,5 +2,5 @@ apiVersion: v2
 name: exflow
 description: An exFlow Helm chart for Kubernetes
 type: application
-version: 1.10.0
-appVersion: "v1.5.0"
+version: 1.10.1
+appVersion: "v1.5.1"
